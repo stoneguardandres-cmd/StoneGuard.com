@@ -1,0 +1,2905 @@
+stoneguard/
+├── src/
+│   ├── app/
+│   │   ├── layout.tsx
+│   │   ├── page.tsx
+│   │   ├── globals.css
+│   │   ├── productos/
+│   │   │   ├── page.tsx
+│   │   │   └── [slug]/
+│   │   │       └── page.tsx
+│   │   ├── contacto/
+│   │   │   └── page.tsx
+│   │   ├── sobre-nosotros/
+│   │   │   └── page.tsx
+│   │   ├── privacidad/
+│   │   │   └── page.tsx
+│   │   ├── terminos/
+│   │   │   └── page.tsx
+│   │   └── garantia/
+│   │       └── page.tsx
+│   ├── components/
+│   │   ├── Navigation.tsx
+│   │   ├── Footer.tsx
+│   │   ├── Hero.tsx
+│   │   ├── ValueSection.tsx
+│   │   ├── BenefitsGrid.tsx
+│   │   ├── ProductsGrid.tsx
+│   │   ├── ProductCard.tsx
+│   │   ├── StatsSection.tsx
+│   │   ├── TestimonialsSection.tsx
+│   │   └── CTASection.tsx
+│   └── lib/
+│       └── constants.ts
+├── public/
+│   ├── favicon.ico
+│   ├── og-image.jpg
+│   └── robots.txt
+├── .eslintrc.json
+├── .gitignore
+├── next.config.js
+├── tsconfig.json
+├── tailwind.config.ts
+├── postcss.config.js
+├── package.json
+├── README.md
+└── vercel.json
+{
+  "name": "stoneguard-website",
+  "version": "1.0.0",
+  "description": "StoneGuard - Premium Protective Solutions for Luxury Materials",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "type-check": "tsc --noEmit",
+    "format": "prettier --write \"src/**/*.{ts,tsx,css}\""
+  },
+  "dependencies": {
+    "next": "^14.0.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "framer-motion": "^10.16.0",
+    "react-intersection-observer": "^9.5.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "@types/react": "^18.2.0",
+    "@types/react-dom": "^18.2.0",
+    "typescript": "^5.0.0",
+    "tailwindcss": "^3.3.0",
+    "postcss": "^8.4.0",
+    "autoprefixer": "^10.4.0",
+    "eslint": "^8.0.0",
+    "eslint-config-next": "^14.0.0",
+    "prettier": "^3.0.0"
+  }
+}
+{
+  "compilerOptions": {
+    "target": "ES2020",
+    "lib": ["ES2020", "DOM", "DOM.Iterable"],
+    "jsx": "preserve",
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "allowImportingTsExtensions": true,
+    "resolveJsonModule": true,
+    "declaration": true,
+    "declarationMap": true,
+    "sourceMap": true,
+    "outDir": "./dist",
+    "rootDir": "./src",
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./src/*"]
+    },
+    "strict": true,
+    "noImplicitAny": true,
+    "strictNullChecks": true,
+    "strictFunctionTypes": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noFallthroughCasesInSwitch": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "isolatedModules": true,
+    "incremental": true,
+    "allowJs": true,
+    "noEmit": true
+  },
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
+  "exclude": ["node_modules"]
+}
+import type { Config } from 'tailwindcss'
+
+const config: Config = {
+  content: [
+    './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
+    './src/components/**/*.{js,ts,jsx,tsx,mdx}',
+    './src/app/**/*.{js,ts,jsx,tsx,mdx}',
+  ],
+  theme: {
+    extend: {
+      colors: {
+        stone: {
+          50: '#f9f7f4',
+          100: '#f3ede6',
+          200: '#e6dace',
+          300: '#d9c7b6',
+          400: '#ccb49e',
+          500: '#bfa186',
+          600: '#b38e6e',
+          700: '#a67b56',
+          800: '#99683e',
+          900: '#8c5526',
+        },
+        dark: {
+          50: '#f5f5f5',
+          100: '#ebebeb',
+          200: '#d7d7d7',
+          300: '#c3c3c3',
+          400: '#afafaf',
+          500: '#9b9b9b',
+          600: '#808080',
+          700: '#656565',
+          800: '#4a4a4a',
+          850: '#3a3a3a',
+          900: '#1a1a1a',
+        },
+        accent: {
+          red: '#c41e3a',
+          'red-dark': '#a01830',
+          'red-light': '#e63946',
+        },
+      },
+      fontFamily: {
+        sans: ['var(--font-sans)', 'system-ui', 'sans-serif'],
+        serif: ['var(--font-serif)', 'Georgia', 'serif'],
+      },
+      spacing: {
+        safe: 'max(1rem, env(safe-area-inset-left))',
+      },
+      backgroundImage: {
+        'gradient-dark': 'linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%)',
+        'gradient-stone': 'linear-gradient(135deg, #2d2d2d 0%, #4a4a4a 100%)',
+      },
+      animation: {
+        'fade-in': 'fadeIn 0.6s ease-in-out',
+        'slide-up': 'slideUp 0.8s ease-out',
+        'slide-right': 'slideRight 0.8s ease-out',
+        'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+      },
+      keyframes: {
+        fadeIn: {
+          '0%': { opacity: '0' },
+          '100%': { opacity: '1' },
+        },
+        slideUp: {
+          '0%': { transform: 'translateY(40px)', opacity: '0' },
+          '100%': { transform: 'translateY(0)', opacity: '1' },
+        },
+        slideRight: {
+          '0%': { transform: 'translateX(-40px)', opacity: '0' },
+          '100%': { transform: 'translateX(0)', opacity: '1' },
+        },
+      },
+      transitionProperty: {
+        'colors-shadow': 'background-color, border-color, box-shadow',
+      },
+    },
+  },
+  plugins: [],
+}
+
+export default config
+module.exports = {
+  plugins: {
+    tailwindcss: {},
+    autoprefixer: {},
+  },
+}
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+  reactStrictMode: true,
+  swcMinify: true,
+  compress: true,
+  poweredByHeader: false,
+  generateEtags: true,
+  productionBrowserSourceMaps: false,
+  images: {
+    unoptimized: false,
+    formats: ['image/avif', 'image/webp'],
+    deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
+    imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
+  },
+  headers: async () => {
+    return [
+      {
+        source: '/:path*',
+        headers: [
+          {
+            key: 'X-Content-Type-Options',
+            value: 'nosniff',
+          },
+          {
+            key: 'X-Frame-Options',
+            value: 'SAMEORIGIN',
+          },
+          {
+            key: 'X-XSS-Protection',
+            value: '1; mode=block',
+          },
+          {
+            key: 'Referrer-Policy',
+            value: 'strict-origin-when-cross-origin',
+          },
+        ],
+      },
+    ]
+  },
+  redirects: async () => {
+    return []
+  },
+  rewrites: async () => {
+    return []
+  },
+}
+
+module.exports = nextConfig
+{
+  "extends": ["next/core-web-vitals", "next/typescript"],
+  "rules": {
+    "react/display-name": "off",
+    "react/no-unescaped-entities": "off",
+    "@next/next/no-img-element": "off",
+    "@next/next/no-html-link-for-pages": "off"
+  }
+}
+{
+  "buildCommand": "next build",
+  "devCommand": "next dev",
+  "installCommand": "npm install",
+  "framework": "nextjs",
+  "env": [
+    {
+      "key": "NEXT_PUBLIC_SITE_URL",
+      "description": "The public URL of the website",
+      "value": "https://stoneguard.com"
+    }
+  ]
+}
+# dependencies
+/node_modules
+/.pnp
+.pnp.js
+
+# testing
+/coverage
+
+# next.js
+/.next/
+/out/
+
+# production
+/build
+
+# misc
+.DS_Store
+*.pem
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# local env files
+.env*.local
+
+# vercel
+.vercel
+
+# ide
+.vscode
+.idea
+*.swp
+*.swo
+*~
+
+# OS
+Thumbs.db
+// src/lib/constants.ts
+
+export const SITE_CONFIG = {
+  name: 'StoneGuard',
+  description: 'Protección premium para materiales de lujo. Selladores nanotecnológicos de alto desempeño.',
+  url: 'https://stoneguard.com',
+  author: 'StoneGuard',
+  twitter: '@stoneguard',
+  ogImage: '/og-image.jpg',
+}
+
+export const PRODUCTS = [
+  {
+    id: 'stf',
+    slug: 'stoneguard-stf',
+    name: 'STONEGUARD STF',
+    category: 'Protección Invisible',
+    tagline: 'Protección que no se ve. Resultados que sí.',
+    description: 'Sellador nanotecnológico de penetración profunda que se integra a los poros del material, bloqueando el paso del agua sin alterar la apariencia natural de la superficie.',
+    image: '/productos/stf.jpg',
+    shortDescription: 'Protección invisible de alto desempeño para materiales premium.',
+    benefits: [
+      'No cambia el color ni acabado del material',
+      'Permite la transpiración del sustrato (respira sin absorber agua)',
+      'Previene salitre, humedad y manchas',
+      'Protección contra lluvia ácida y agentes químicos',
+      'Ideal para proyectos donde la estética original es clave',
+    ],
+    specs: {
+      base: 'Acuosa',
+      aplicacion: 'Penetración profunda',
+      secado: '24-48 horas',
+      durabilidad: '5-10 años',
+      rendimiento: '15-25 m² por litro',
+    },
+    idealFor: [
+      'Fachadas',
+      'Mármol',
+      'Piedra natural',
+      'Concreto arquitectónico',
+    ],
+    positioning: 'PROTECCIÓN INVISIBLE DE ALTO DESEMPEÑO',
+  },
+  {
+    id: 'sft2',
+    slug: 'stoneguard-sft-2',
+    name: 'STONEGUARD SFT-2',
+    category: 'Realce Premium',
+    tagline: 'Protege y eleva la estética de tus superficies.',
+    description: 'Sellador hidrofóbico de alto desempeño que protege la superficie mientras genera un efecto húmedo elegante, intensificando color y profundidad del material.',
+    image: '/productos/sft2.jpg',
+    shortDescription: 'Realce visual premium con protección de alto desempeño.',
+    benefits: [
+      'Efecto húmedo premium inmediato',
+      'Protección contra humedad, salitre y microorganismos',
+      'Alta resistencia a químicos y condiciones ambientales',
+      'Penetración profunda con efecto estético',
+      'Mantiene apariencia sofisticada a largo plazo',
+    ],
+    specs: {
+      base: 'Solvente',
+      aplicacion: 'Superficie y penetración',
+      secado: '12-24 horas',
+      durabilidad: '7-12 años',
+      rendimiento: '20-30 m² por litro',
+    },
+    idealFor: [
+      'Piedra decorativa',
+      'Fachadas premium',
+      'Proyectos residenciales de lujo',
+      'Acabados donde la estética es prioridad',
+    ],
+    positioning: 'REALCE VISUAL + PROTECCIÓN PREMIUM',
+  },
+  {
+    id: 'oleofobico-q',
+    slug: 'stoneguard-oleofobico-q',
+    name: 'STONEGUARD OLEOFÓBICO Q',
+    category: 'Resistencia Industrial',
+    tagline: 'Resistencia real para superficies que trabajan.',
+    description: 'Endurecedor mineral que forma una capa resistente al tránsito y a la absorción de grasas, aceites y químicos, ideal para superficies de alto desgaste.',
+    image: '/productos/oleofobico-q.jpg',
+    shortDescription: 'Protección industrial premium para superficies de alto tráfico.',
+    benefits: [
+      'Alta resistencia a abrasión y tránsito',
+      'Reduce absorción de aceites y grasas',
+      'Mejora acabado con efecto ligeramente brillante',
+      'Aumenta durabilidad del concreto',
+      'Ideal para entornos industriales y comerciales',
+    ],
+    specs: {
+      base: 'Mineral',
+      aplicacion: 'Endurecedor y protección',
+      secado: '48-72 horas',
+      durabilidad: '10-15 años',
+      rendimiento: '25-40 m² por litro',
+    },
+    idealFor: [
+      'Estacionamientos',
+      'Gasolineras',
+      'Talleres',
+      'Pisos industriales',
+      'Superficies de alto tráfico',
+    ],
+    positioning: 'PROTECCIÓN INDUSTRIAL PREMIUM PARA ALTO DESEMPEÑO',
+  },
+]
+
+export const BENEFITS = [
+  {
+    title: 'Protección Profunda',
+    description: 'No superficial. Nuestros selladores penetran el material para proteger desde adentro.',
+    icon: '🛡️',
+  },
+  {
+    title: 'Tecnología Integrada',
+    description: 'Se fusionan con el sustrato, no crean capas que se deterioren.',
+    icon: '⚙️',
+  },
+  {
+    title: 'Estética Intacta o Mejorada',
+    description: 'Desde protección invisible hasta realce premium. Tu elección.',
+    icon: '✨',
+  },
+  {
+    title: 'Resistencia Real',
+    description: 'Testeado en condiciones extremas. Rendimiento garantizado.',
+    icon: '💪',
+  },
+  {
+    title: 'Inversión Protegida',
+    description: 'Extiende la vida útil de materiales premium. ROI garantizado.',
+    icon: '💎',
+  },
+  {
+    title: 'Asesoría Profesional',
+    description: 'Especialistas que recomiendan la solución exacta para tu proyecto.',
+    icon: '👨‍💼',
+  },
+]
+
+export const STATS = [
+  {
+    number: '15+',
+    label: 'Años de experiencia en protección de superficies',
+  },
+  {
+    number: '5000+',
+    label: 'Proyectos protegidos en Latinoamérica',
+  },
+  {
+    number: '98%',
+    label: 'Satisfacción de clientes',
+  },
+  {
+    number: '100%',
+    label: 'Garantía de efectividad',
+  },
+]
+
+export const TESTIMONIALS = [
+  {
+    name: 'Arq. Marina López',
+    role: 'Arquitecta - Proyectos Residenciales',
+    text: 'StoneGuard SFT-2 ha sido fundamental en nuestros proyectos de lujo. El efecto húmedo es impecable y la protección es real.',
+    rating: 5,
+  },
+  {
+    name: 'Juan Carlos Rodríguez',
+    role: 'Desarrollador Inmobiliario',
+    text: 'Nuestros clientes quedan satisfechos con la durabilidad y el acabado. Recomendamos StoneGuard sin dudarlo.',
+    rating: 5,
+  },
+  {
+    name: 'Ingª. Paula Morales',
+    role: 'Ingeniera - Proyectos Comerciales',
+    text: 'El oleofóbico Q ha reducido significativamente nuestros costos de mantenimiento en estacionamientos. Inversión garantizada.',
+    rating: 5,
+  },
+]
+
+export const NAVIGATION = [
+  { label: 'Inicio', href: '/' },
+  { label: 'Productos', href: '/productos' },
+  { label: 'Sobre Nosotros', href: '/sobre-nosotros' },
+  { label: 'Contacto', href: '/contacto' },
+]
+
+export const FOOTER_LINKS = {
+  productos: [
+    { label: 'StoneGuard STF', href: '/productos/stoneguard-stf' },
+    { label: 'StoneGuard SFT-2', href: '/productos/stoneguard-sft-2' },
+    { label: 'StoneGuard Oleofóbico Q', href: '/productos/stoneguard-oleofobico-q' },
+  ],
+  empresa: [
+    { label: 'Sobre Nosotros', href: '/sobre-nosotros' },
+    { label: 'Blog', href: '/blog' },
+    { label: 'Sostenibilidad', href: '/sostenibilidad' },
+  ],
+  legal: [
+    { label: 'Política de Privacidad', href: '/privacidad' },
+    { label: 'Términos y Condiciones', href: '/terminos' },
+    { label: 'Garantía', href: '/garantia' },
+  ],
+  contacto: {
+    email: 'info@stoneguard.com',
+    phone: '+1 (555) 123-4567',
+    address: 'Calle Piedra 123, Arquitectura City',
+  },
+}
+/* src/app/globals.css */
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Inter:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --font-sans: 'Inter', sans-serif;
+  --font-serif: 'Playfair Display', serif;
+
+  /* Colors */
+  --color-black: #1a1a1a;
+  --color-dark-gray: #2d2d2d;
+  --color-gray: #4a4a4a;
+  --color-light-gray: #ebebeb;
+  --color-white: #ffffff;
+  --color-accent: #c41e3a;
+  --color-accent-light: #e63946;
+  --color-accent-dark: #a01830;
+
+  /* Spacing */
+  --spacing-xs: 0.5rem;
+  --spacing-sm: 1rem;
+  --spacing-md: 1.5rem;
+  --spacing-lg: 2rem;
+  --spacing-xl: 3rem;
+  --spacing-2xl: 4rem;
+  --spacing-3xl: 6rem;
+
+  /* Typography */
+  --text-hero: 3.5rem;
+  --text-h1: 2.5rem;
+  --text-h2: 2rem;
+  --text-h3: 1.5rem;
+  --text-body: 1rem;
+  --text-small: 0.875rem;
+
+  /* Other */
+  --border-radius: 8px;
+  --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-white);
+  color: var(--color-black);
+  font-family: var(--font-sans);
+  line-height: 1.6;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Typography */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-serif);
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.5px;
+  color: var(--color-black);
+}
+
+h1 {
+  font-size: var(--text-h1);
+}
+
+h2 {
+  font-size: var(--text-h2);
+}
+
+h3 {
+  font-size: var(--text-h3);
+}
+
+p {
+  font-size: var(--text-body);
+  color: var(--color-gray);
+  line-height: 1.8;
+}
+
+/* Links */
+a {
+  color: var(--color-accent);
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+a:hover {
+  color: var(--color-accent-light);
+}
+
+/* Buttons */
+button {
+  font-family: var(--font-sans);
+  cursor: pointer;
+  border: none;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-light-gray);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-gray);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-dark-gray);
+}
+
+/* Selection */
+::selection {
+  background-color: var(--color-accent);
+  color: var(--color-white);
+}
+
+/* Images */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Forms */
+input,
+textarea,
+select {
+  font-family: var(--font-sans);
+}
+
+input[type='text'],
+input[type='email'],
+input[type='tel'],
+textarea,
+select {
+  border-radius: var(--border-radius);
+  border: 1px solid var(--color-light-gray);
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  transition: var(--transition);
+}
+
+input[type='text']:focus,
+input[type='email']:focus,
+input[type='tel']:focus,
+textarea:focus,
+select:focus {
+  outline: none;
+  border-color: var(--color-accent);
+  box-shadow: 0 0 0 3px rgba(196, 30, 58, 0.1);
+}
+
+/* Utilities */
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+/* Accessibility */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* Loading */
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin {
+  animation: spin 1s linear infinite;
+}
+
+/* Focus visible */
+*:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+/* Print styles */
+@media print {
+  body {
+    background: white;
+    color: black;
+  }
+
+  a {
+    text-decoration: underline;
+  }
+
+  nav,
+  footer,
+  .no-print {
+    display: none;
+  }
+}
+// src/components/Navigation.tsx
+'use client'
+
+import { useState, useEffect } from 'react'
+import Link from 'next/link'
+import { motion, AnimatePresence } from 'framer-motion'
+import { NAVIGATION } from '@/lib/constants'
+
+export function Navigation() {
+  const [isScrolled, setIsScrolled] = useState(false)
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 50)
+    }
+
+    window.addEventListener('scroll', handleScroll)
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
+
+  // Cerrar menu al hacer click en un link
+  const handleNavClick = () => {
+    setIsMobileMenuOpen(false)
+  }
+
+  return (
+    <motion.nav
+      className={`fixed w-full top-0 z-50 transition-all duration-300 ${
+        isScrolled
+          ? 'bg-dark-900/95 backdrop-blur-sm shadow-lg'
+          : 'bg-transparent'
+      }`}
+      initial={{ opacity: 0, y: -20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6 }}
+    >
+      <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between h-16">
+        {/* Logo */}
+        <Link href="/" className="flex items-center space-x-2 flex-shrink-0">
+          <motion.div
+            className="w-10 h-10 bg-gradient-to-br from-accent-red to-accent-red-dark rounded flex items-center justify-center"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            <span className="text-white font-bold text-lg">SG</span>
+          </motion.div>
+          <span className="text-white font-serif text-xl font-bold hidden sm:inline">
+            StoneGuard
+          </span>
+        </Link>
+
+        {/* Desktop Menu */}
+        <div className="hidden md:flex items-center space-x-8">
+          {NAVIGATION.map((item, idx) => (
+            <motion.div
+              key={item.href}
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: idx * 0.1 }}
+            >
+              <Link
+                href={item.href}
+                className="text-sm font-medium text-white hover:text-accent-red transition-colors duration-300"
+              >
+                {item.label}
+              </Link>
+            </motion.div>
+          ))}
+        </div>
+
+        {/* CTA Button Desktop */}
+        <motion.div
+          className="hidden md:block flex-shrink-0"
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+        >
+          <Link
+            href="/contacto"
+            className="px-6 py-2 bg-accent-red text-white rounded font-medium hover:bg-accent-red-dark transition-all duration-300"
+          >
+            Contactar
+          </Link>
+        </motion.div>
+
+        {/* Mobile Menu Button */}
+        <button
+          className="md:hidden text-white p-2"
+          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          aria-label="Toggle mobile menu"
+          aria-expanded={isMobileMenuOpen}
+        >
+          <svg
+            className="w-6 h-6"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d={
+                isMobileMenuOpen
+                  ? 'M6 18L18 6M6 6l12 12'
+                  : 'M4 6h16M4 12h16M4 18h16'
+              }
+            />
+          </svg>
+        </button>
+      </div>
+
+      {/* Mobile Menu */}
+      <AnimatePresence>
+        {isMobileMenuOpen && (
+          <motion.div
+            className="md:hidden bg-dark-900/98 backdrop-blur-sm border-t border-dark-700"
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: 'auto' }}
+            exit={{ opacity: 0, height: 0 }}
+            transition={{ duration: 0.3 }}
+          >
+            <div className="px-6 py-6 space-y-4">
+              {NAVIGATION.map((item, idx) => (
+                <motion.div
+                  key={item.href}
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: idx * 0.05 }}
+                >
+                  <Link
+                    href={item.href}
+                    className="block text-white hover:text-accent-red transition-colors py-2"
+                    onClick={handleNavClick}
+                  >
+                    {item.label}
+                  </Link>
+                </motion.div>
+              ))}
+              <motion.div
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: NAVIGATION.length * 0.05 }}
+                className="pt-4 border-t border-dark-700"
+              >
+                <Link
+                  href="/contacto"
+                  className="block w-full text-center px-6 py-3 bg-accent-red text-white rounded font-medium hover:bg-accent-red-dark transition-all"
+                  onClick={handleNavClick}
+                >
+                  Contactar
+                </Link>
+              </motion.div>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </motion.nav>
+  )
+}
+// src/components/Hero.tsx
+'use client'
+
+import Link from 'next/link'
+import { motion } from 'framer-motion'
+
+export function Hero() {
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2,
+        delayChildren: 0.3,
+      },
+    },
+  }
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.8, ease: 'easeOut' },
+    },
+  }
+
+  return (
+    <div className="relative h-screen w-full overflow-hidden flex items-center justify-center bg-gradient-dark pt-16">
+      {/* Background Texture */}
+      <div
+        className="absolute inset-0 opacity-10"
+        style={{
+          backgroundImage:
+            'url("data:image/svg+xml,%3Csvg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="none" fill-rule="evenodd"%3E%3Cg fill="%23ffffff" fill-opacity="0.1"%3E%3Cpath d="M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")',
+        }}
+      />
+
+      {/* Gradient Overlay */}
+      <div className="absolute inset-0 bg-gradient-to-b from-dark-900/0 via-dark-900/30 to-dark-900/50" />
+
+      {/* Content */}
+      <motion.div
+        className="relative z-10 max-w-4xl mx-auto px-6 text-center"
+        variants={containerVariants}
+        initial="hidden"
+        animate="visible"
+      >
+        {/* Subtitle */}
+        <motion.div variants={itemVariants} className="mb-6">
+          <span className="inline-block px-4 py-2 bg-accent-red/10 border border-accent-red/30 rounded-full">
+            <span className="text-accent-red text-sm font-semibold uppercase tracking-widest">
+              Protección de Lujo
+            </span>
+          </span>
+        </motion.div>
+
+        {/* Main Headline */}
+        <motion.h1
+          variants={itemVariants}
+          className="text-5xl md:text-7xl font-serif font-bold text-white mb-6 leading-tight"
+        >
+          Protección que{' '}
+          <span className="bg-gradient-to-r from-accent-red to-accent-red-light bg-clip-text text-transparent">
+            trasciende el tiempo
+          </span>
+        </motion.h1>
+
+        {/* Subheadline */}
+        <motion.p
+          variants={itemVariants}
+          className="text-lg md:text-xl text-gray-300 max-w-2xl mx-auto mb-8 leading-relaxed"
+        >
+          No se trata solo de instalar materiales premium. Se trata de protegerlos,
+          preservarlos y asegurar su valor con el paso del tiempo.
+        </motion.p>
+
+        {/* CTAs */}
+        <motion.div
+          variants={itemVariants}
+          className="flex flex-col sm:flex-row gap-4 justify-center items-center"
+        >
+          <motion.div
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            <Link
+              href="/productos"
+              className="inline-block px-8 py-4 bg-accent-red text-white font-semibold rounded hover:bg-accent-red-dark transition-all duration-300 shadow-lg hover:shadow-xl"
+            >
+              Explorar Productos
+            </Link>
+          </motion.div>
+
+          <motion.div
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            <Link
+              href="/contacto"
+              className="inline-block px-8 py-4 bg-white/10 border-2 border-white text-white font-semibold rounded hover:bg-white/20 transition-all duration-300"
+            >
+              Solicitar Asesoría
+            </Link>
+          </motion.div>
+        </motion.div>
+
+        {/* Scroll Indicator */}
+        <motion.div
+          variants={itemVariants}
+          className="absolute bottom-10 left-1/2 transform -translate-x-1/2"
+          animate={{ y: [0, 10, 0] }}
+          transition={{ duration: 2, repeat: Infinity }}
+        >
+          <svg
+            className="w-6 h-6 text-white/50"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M19 14l-7 7m0 0l-7-7m7 7V3"
+            />
+          </svg>
+        </motion.div>
+      </motion.div>
+    </div>
+  )
+}
+// src/components/ValueSection.tsx
+'use client'
+
+import { motion } from 'framer-motion'
+import { useInView } from 'react-intersection-observer'
+
+export function ValueSection() {
+  const { ref, inView } = useInView({
+    triggerOnce: true,
+    threshold: 0.1,
+  })
+
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+      },
+    },
+  }
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.8 },
+    },
+  }
+
+  return (
+    <section ref={ref} className="py-20 md:py-32 bg-white">
+      <div className="max-w-6xl mx-auto px-6">
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          animate={inView ? 'visible' : 'hidden'}
+          className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center"
+        >
+          {/* Text Content */}
+          <motion.div variants={itemVariants}>
+            <h2 className="text-4xl md:text-5xl font-serif font-bold mb-6 text-dark-900">
+              El lujo no termina en la instalación
+            </h2>
+            <p className="text-lg text-gray-600 mb-6 leading-relaxed">
+              Los materiales de alto nivel requieren protección a la misma altura.
+              StoneGuard desarrolla soluciones que penetran, protegen y prolongan
+              la vida de cada superficie.
+            </p>
+            <p className="text-lg text-gray-600 mb-8 leading-relaxed">
+              Nuestros selladores nanotecnológicos no son capas superficiales. Son
+              integración molecular con el material, garantizando protección
+              duradera sin comprometer la estética.
+            </p>
+
+            <motion.div whileHover={{ x: 5 }} className="inline-block">
+              <a
+                href="/sobre-nosotros"
+                className="inline-flex items-center text-accent-red font-semibold hover:text-accent-red-light transition-colors"
+              >
+                Conoce más sobre StoneGuard
+                <svg
+                  className="w-5 h-5 ml-2"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M9 5l7 7-7 7"
+                  />
+                </svg>
+              </a>
+            </motion.div>
+          </motion.div>
+
+          {/* Visual Element */}
+          <motion.div
+            variants={itemVariants}
+            className="relative h-96 md:h-full min-h-96 bg-gradient-stone rounded-lg overflow-hidden"
+          >
+            <div className="absolute inset-0 flex items-center justify-center">
+              <motion.div
+                animate={{ rotate: 360 }}
+                transition={{
+                  duration: 20,
+                  repeat: Infinity,
+                  ease: 'linear',
+                }}
+                className="w-32 h-32 rounded-full border-4 border-accent-red/20 border-t-accent-red"
+              />
+            </div>
+
+            {/* Layers visualization */}
+            <div className="absolute inset-0 flex items-center justify-center">
+              <div className="space-y-4 text-center">
+                <motion.div
+                  animate={{ scale: [1, 1.1, 1] }}
+                  transition={{ duration: 2, repeat: Infinity }}
+                  className="w-24 h-24 bg-accent-red/20 rounded-lg mx-auto flex items-center justify-center"
+                >
+                  <span className="text-xs text-accent-red font-semibold text-center px-2">
+                    Protección Profunda
+                  </span>
+                </motion.div>
+              </div>
+            </div>
+          </motion.div>
+        </motion.div>
+      </div>
+    </section>
+  )
+}
+// src/components/BenefitsGrid.tsx
+'use client'
+
+import { motion } from 'framer-motion'
+import { useInView } from 'react-intersection-observer'
+import { BENEFITS } from '@/lib/constants'
+
+export function BenefitsGrid() {
+  const { ref, inView } = useInView({
+    triggerOnce: true,
+    threshold: 0.1,
+  })
+
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+        delayChildren: 0.2,
+      },
+    },
+  }
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.6 },
+    },
+  }
+
+  return (
+    <section ref={ref} className="py-20 md:py-32 bg-dark-900">
+      <div className="max-w-6xl mx-auto px-6">
+        {/* Header */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+          transition={{ duration: 0.8 }}
+          className="text-center mb-16"
+        >
+          <h2 className="text-4xl md:text-5xl font-serif font-bold text-white mb-6">
+            Por qué elegir StoneGuard
+          </h2>
+          <p className="text-xl text-gray-300 max-w-2xl mx-auto">
+            Características y beneficios que hacen la diferencia en la protección
+            de tu inversión
+          </p>
+        </motion.div>
+
+        {/* Grid */}
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          animate={inView ? 'visible' : 'hidden'}
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+        >
+          {BENEFITS.map((benefit, idx) => (
+            <motion.div
+              key={idx}
+              variants={itemVariants}
+              whileHover={{ y: -10, transition: { duration: 0.3 } }}
+              className="p-8 bg-dark-800/50 border border-dark-700 rounded-lg hover:border-accent-red/50 transition-all duration-300"
+            >
+              {/* Icon */}
+              <div className="text-5xl mb-4">{benefit.icon}</div>
+
+              {/* Title */}
+              <h3 className="text-xl font-serif font-bold text-white mb-4">
+                {benefit.title}
+              </h3>
+
+              {/* Description */}
+              <p className="text-gray-400 leading-relaxed">
+                {benefit.description}
+              </p>
+
+              {/* Accent Line */}
+              <motion.div
+                className="h-1 w-0 bg-accent-red mt-6 rounded"
+                whileHover={{ width: '40px' }}
+                transition={{ duration: 0.3 }}
+              />
+            </motion.div>
+          ))}
+        </motion.div>
+      </div>
+    </section>
+  )
+}
+// src/components/ProductCard.tsx
+'use client'
+
+import Link from 'next/link'
+import { motion } from 'framer-motion'
+
+interface ProductCardProps {
+  id: string
+  slug: string
+  name: string
+  category: string
+  tagline: string
+  positioning: string
+  index: number
+}
+
+export function ProductCard({
+  slug,
+  name,
+  category,
+  tagline,
+  positioning,
+  index,
+}: ProductCardProps) {
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ delay: index * 0.1, duration: 0.6 }}
+      viewport={{ once: true }}
+      whileHover={{ y: -10 }}
+      className="group bg-white border border-gray-200 rounded-lg overflow-hidden hover:shadow-2xl transition-all duration-300"
+    >
+      <Link href={`/productos/${slug}`}>
+        {/* Image Container */}
+        <div className="relative h-64 bg-gradient-stone overflow-hidden">
+          <motion.div
+            className="w-full h-full flex items-center justify-center"
+            whileHover={{ scale: 1.1 }}
+            transition={{ duration: 0.6 }}
+          >
+            {/* Placeholder for image */}
+            <div className="w-full h-full bg-gradient-to-br from-dark-900/50 to-dark-800/50 flex items-center justify-center">
+              <span className="text-white/30 text-lg font-serif">{name}</span>
+            </div>
+          </motion.div>
+
+          {/* Category Badge */}
+          <motion.div
+            className="absolute top-4 right-4 px-4 py-2 bg-accent-red text-white text-sm font-semibold rounded"
+            initial={{ opacity: 0, x: 20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ delay: index * 0.1 + 0.2 }}
+          >
+            {category}
+          </motion.div>
+        </div>
+
+        {/* Content */}
+        <div className="p-6">
+          {/* Product Name */}
+          <h3 className="text-2xl font-serif font-bold text-dark-900 mb-2 group-hover:text-accent-red transition-colors">
+            {name}
+          </h3>
+
+          {/* Positioning */}
+          <p className="text-xs uppercase tracking-widest text-accent-red font-semibold mb-3">
+            {positioning}
+          </p>
+
+          {/* Tagline */}
+          <p className="text-base text-gray-700 mb-4 leading-relaxed font-medium">
+            {tagline}
+          </p>
+
+          {/* CTA */}
+          <motion.div
+            className="inline-flex items-center text-accent-red font-semibold group-hover:text-accent-red-light transition-colors"
+            whileHover={{ x: 5 }}
+          >
+            Ver Detalles
+            <svg
+              className="w-4 h-4 ml-2"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M9 5l7 7-7 7"
+              />
+            </svg>
+          </motion.div>
+        </div>
+      </Link>
+    </motion.div>
+  )
+}
+// src/components/ProductsGrid.tsx
+'use client'
+
+import { motion } from 'framer-motion'
+import { useInView } from 'react-intersection-observer'
+import { ProductCard } from './ProductCard'
+import { PRODUCTS } from '@/lib/constants'
+
+export function ProductsGrid() {
+  const { ref, inView } = useInView({
+    triggerOnce: true,
+    threshold: 0.1,
+  })
+
+  return (
+    <section ref={ref} className="py-20 md:py-32 bg-white">
+      <div className="max-w-6xl mx-auto px-6">
+        {/* Header */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+          transition={{ duration: 0.8 }}
+          className="text-center mb-16"
+        >
+          <h2 className="text-4xl md:text-5xl font-serif font-bold text-dark-900 mb-6">
+            Soluciones diseñadas para cada necesidad
+          </h2>
+          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+            Desde protección invisible hasta realce estético o resistencia
+            industrial.
+          </p>
+        </motion.div>
+
+        {/* Product Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {PRODUCTS.map((product, idx) => (
+            <ProductCard key={product.id} {...product} index={idx} />
+          ))}
+        </div>
+      </div>
+    </section>
+  )
+}
+// src/components/StatsSection.tsx
+'use client'
+
+import { motion } from 'framer-motion'
+import { useInView } from 'react-intersection-observer'
+import { STATS } from '@/lib/constants'
+
+export function StatsSection() {
+  const { ref, inView } = useInView({
+    triggerOnce: true,
+    threshold: 0.1,
+  })
+
+  return (
+    <section ref={ref} className="py-20 md:py-32 bg-gradient-dark">
+      <div className="max-w-6xl mx-auto px-6">
+        {/* Header */}
+        <motion.h2
+          initial={{ opacity: 0, y: 20 }}
+          animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+          transition={{ duration: 0.8 }}
+          className="text-4xl md:text-5xl font-serif font-bold text-white text-center mb-16"
+        >
+          Trayectoria de excelencia
+        </motion.h2>
+
+        {/* Stats Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          {STATS.map((stat, idx) => (
+            <motion.div
+              key={idx}
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={
+                inView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.9 }
+              }
+              transition={{ delay: idx * 0.1, duration: 0.6 }}
+              className="text-center p-8 bg-dark-800/50 rounded-lg border border-dark-700"
+            >
+              <motion.div
+                className="text-5xl md:text-6xl font-bold bg-gradient-to-r from-accent-red to-accent-red-light bg-clip-text text-transparent mb-4"
+                animate={
+                  inView ? { scale: [1, 1.1, 1] } : { scale: 1 }
+                }
+                transition={{
+                  delay: idx * 0.1,
+                  duration: 0.8,
+                  repeat: Infinity,
+                  repeatDelay: 2,
+                }}
+              >
+                {stat.number}
+              </motion.div>
+              <p className="text-gray-300 text-lg">{stat.label}</p>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+    </section>
+  )
+}
+// src/components/TestimonialsSection.tsx
+'use client'
+
+import { motion } from 'framer-motion'
+import { useInView } from 'react-intersection-observer'
+import { TESTIMONIALS } from '@/lib/constants'
+
+export function TestimonialsSection() {
+  const { ref, inView } = useInView({
+    triggerOnce: true,
+    threshold: 0.1,
+  })
+
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2,
+      },
+    },
+  }
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.6 },
+    },
+  }
+
+  return (
+    <section ref={ref} className="py-20 md:py-32 bg-white">
+      <div className="max-w-6xl mx-auto px-6">
+        {/* Header */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+          transition={{ duration: 0.8 }}
+          className="text-center mb-16"
+        >
+          <h2 className="text-4xl md:text-5xl font-serif font-bold text-dark-900 mb-6">
+            Lo que dicen nuestros clientes
+          </h2>
+          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+            Profesionales del sector que confían en StoneGuard
+          </p>
+        </motion.div>
+
+        {/* Testimonials Grid */}
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          animate={inView ? 'visible' : 'hidden'}
+          className="grid grid-cols-1 md:grid-cols-3 gap-8"
+        >
+          {TESTIMONIALS.map((testimonial, idx) => (
+            <motion.div
+              key={idx}
+              variants={itemVariants}
+              whileHover={{ y: -5 }}
+              className="p-8 bg-gray-50 border border-gray-200 rounded-lg"
+            >
+              {/* Rating */}
+              <div className="flex gap-1 mb-4">
+                {[...Array(testimonial.rating)].map((_, i) => (
+                  <span key={i} className="text-accent-red text-lg">
+                    ★
+                  </span>
+                ))}
+              </div>
+
+              {/* Text */}
+              <p className="text-gray-700 mb-6 italic leading-relaxed">
+                "{testimonial.text}"
+              </p>
+
+              {/* Author */}
+              <div className="border-t border-gray-200 pt-6">
+                <p className="font-semibold text-dark-900">
+                  {testimonial.name}
+                </p>
+                <p className="text-sm text-accent-red">{testimonial.role}</p>
+              </div>
+            </motion.div>
+          ))}
+        </motion.div>
+      </div>
+    </section>
+  )
+}
+// src/components/CTASection.tsx
+'use client'
+
+import Link from 'next/link'
+import { motion } from 'framer-motion'
+import { useInView } from 'react-intersection-observer'
+
+export function CTASection() {
+  const { ref, inView } = useInView({
+    triggerOnce: true,
+    threshold: 0.1,
+  })
+
+  return (
+    <section
+      ref={ref}
+      className="py-20 md:py-32 bg-gradient-dark relative overflow-hidden"
+    >
+      {/* Background Elements */}
+      <motion.div
+        className="absolute top-0 right-0 w-96 h-96 bg-accent-red/5 rounded-full blur-3xl"
+        animate={{ x: [0, 50, 0], y: [0, 30, 0] }}
+        transition={{ duration: 8, repeat: Infinity }}
+      />
+
+      <div className="max-w-4xl mx-auto px-6 relative z-10">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+          transition={{ duration: 0.8 }}
+          className="text-center"
+        >
+          {/* Main Message */}
+          <h2 className="text-4xl md:text-5xl font-serif font-bold text-white mb-6">
+            Una inversión protegida es una inversión inteligente
+          </h2>
+
+          <p className="text-xl text-gray-300 mb-10 leading-relaxed">
+            Habla con nuestros expertos y descubre la solución perfecta para tu
+            proyecto.
+          </p>
+
+          {/* CTA Buttons */}
+          <motion.div
+            className="flex flex-col sm:flex-row gap-4 justify-center items-center"
+            initial={{ opacity: 0 }}
+            animate={inView ? { opacity: 1 } : { opacity: 0 }}
+            transition={{ delay: 0.4, duration: 0.8 }}
+          >
+            <motion.div
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <Link
+                href="/contacto"
+                className="inline-block px-8 py-4 bg-accent-red text-white font-semibold rounded hover:bg-accent-red-dark transition-all duration-300 shadow-lg hover:shadow-xl"
+              >
+                Habla con un Asesor
+              </Link>
+            </motion.div>
+
+            <motion.div
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <Link
+                href="/productos"
+                className="inline-block px-8 py-4 bg-white/10 border-2 border-white text-white font-semibold rounded hover:bg-white/20 transition-all duration-300"
+              >
+                Ver Productos
+              </Link>
+            </motion.div>
+          </motion.div>
+
+          {/* Additional Info */}
+          <motion.p
+            className="text-gray-400 text-sm mt-8"
+            initial={{ opacity: 0 }}
+            animate={inView ? { opacity: 1 } : { opacity: 0 }}
+            transition={{ delay: 0.6, duration: 0.8 }}
+          >
+            Disponibles para consultas de proyectos residenciales, comerciales e
+            industriales
+          </motion.p>
+        </motion.div>
+      </div>
+    </section>
+  )
+}
+// src/components/Footer.tsx
+'use client'
+
+import Link from 'next/link'
+import { motion } from 'framer-motion'
+import { FOOTER_LINKS } from '@/lib/constants'
+
+export function Footer() {
+  const currentYear = new Date().getFullYear()
+
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+      },
+    },
+  }
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 10 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.4 },
+    },
+  }
+
+  return (
+    <footer className="bg-dark-900 border-t border-dark-700">
+      {/* Main Footer */}
+      <div className="max-w-6xl mx-auto px-6 py-16">
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12"
+        >
+          {/* Brand Column */}
+          <motion.div variants={itemVariants}>
+            <div className="flex items-center space-x-2 mb-4">
+              <div className="w-10 h-10 bg-gradient-to-br from-accent-red to-accent-red-dark rounded flex items-center justify-center">
+                <span className="text-white font-bold">SG</span>
+              </div>
+              <span className="text-white font-serif text-xl font-bold">
+                StoneGuard
+              </span>
+            </div>
+            <p className="text-gray-400 text-sm leading-relaxed">
+              Protección premium para materiales de lujo. Selladores
+              nanotecnológicos de alto desempeño.
+            </p>
+          </motion.div>
+
+          {/* Productos */}
+          <motion.div variants={itemVariants}>
+            <h3 className="text-white font-semibold mb-4">Productos</h3>
+            <ul className="space-y-3">
+              {FOOTER_LINKS.productos.map((link) => (
+                <li key={link.href}>
+                  <Link
+                    href={link.href}
+                    className="text-gray-400 hover:text-accent-red transition-colors"
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </motion.div>
+
+          {/* Empresa */}
+          <motion.div variants={itemVariants}>
+            <h3 className="text-white font-semibold mb-4">Empresa</h3>
+            <ul className="space-y-3">
+              {FOOTER_LINKS.empresa.map((link) => (
+                <li key={link.href}>
+                  <Link
+                    href={link.href}
+                    className="text-gray-400 hover:text-accent-red transition-colors"
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </motion.div>
+
+          {/* Contacto */}
+          <motion.div variants={itemVariants}>
+            <h3 className="text-white font-semibold mb-4">Contacto</h3>
+            <ul className="space-y-3">
+              <li>
+                <a
+                  href={`mailto:${FOOTER_LINKS.contacto.email}`}
+                  className="text-gray-400 hover:text-accent-red transition-colors text-sm"
+                >
+                  {FOOTER_LINKS.contacto.email}
+                </a>
+              </li>
+              <li>
+                <a
+                  href={`tel:${FOOTER_LINKS.contacto.phone.replace(/\s/g, '')}`}
+                  className="text-gray-400 hover:text-accent-red transition-colors text-sm"
+                >
+                  {FOOTER_LINKS.contacto.phone}
+                </a>
+              </li>
+              <li>
+                <p className="text-gray-400 text-sm">
+                  {FOOTER_LINKS.contacto.address}
+                </p>
+              </li>
+            </ul>
+          </motion.div>
+        </motion.div>
+
+        {/* Divider */}
+        <div className="border-t border-dark-700 my-8" />
+
+        {/* Bottom Footer */}
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0"
+        >
+          <motion.p variants={itemVariants} className="text-gray-500 text-sm">
+            © {currentYear} StoneGuard. Todos los derechos reservados.
+          </motion.p>
+
+          <motion.div variants={itemVariants} className="flex gap-6">
+            <Link
+              href="/privacidad"
+              className="text-gray-400 hover:text-accent-red text-sm transition-colors"
+            >
+              Privacidad
+            </Link>
+            <Link
+              href="/terminos"
+              className="text-gray-400 hover:text-accent-red text-sm transition-colors"
+            >
+              Términos
+            </Link>
+            <Link
+              href="/garantia"
+              className="text-gray-400 hover:text-accent-red text-sm transition-colors"
+            >
+              Garantía
+            </Link>
+          </motion.div>
+
+          {/* Social Links */}
+          <motion.div variants={itemVariants} className="flex gap-4">
+            {[
+              { icon: 'f', href: '#' },
+              { icon: 'in', href: '#' },
+              { icon: 'ig', href: '#' },
+            ].map((social) => (
+              <motion.a
+                key={social.icon}
+                href={social.href}
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.9 }}
+                className="w-10 h-10 rounded-full bg-dark-800 hover:bg-accent-red flex items-center justify-center transition-colors"
+                aria-label={`Link a ${social.icon}`}
+              >
+                <span className="text-white text-sm font-semibold">
+                  {social.icon}
+                </span>
+              </motion.a>
+            ))}
+          </motion.div>
+        </motion.div>
+      </div>
+    </footer>
+  )
+}
+// src/app/layout.tsx
+import type { Metadata } from 'next'
+import { Navigation } from '@/components/Navigation'
+import { Footer } from '@/components/Footer'
+import { SITE_CONFIG } from '@/lib/constants'
+import './globals.css'
+
+export const metadata: Metadata = {
+  title: 'StoneGuard | Protección Premium para Materiales de Lujo',
+  description:
+    'Selladores nanotecnológicos y endurecedores premium para proteger tu inversión. Protección invisible, resultados visibles.',
+  keywords: [
+    'selladores',
+    'piedra',
+    'concreto',
+    'protección',
+    'construcción',
+    'arquitectura',
+  ],
+  authors: [{ name: 'StoneGuard' }],
+  creator: 'StoneGuard',
+  publisher: 'StoneGuard',
+  robots: {
+    index: true,
+    follow: true,
+  },
+  openGraph: {
+    type: 'website',
+    locale: 'es_ES',
+    url: SITE_CONFIG.url,
+    siteName: SITE_CONFIG.name,
+    title: 'StoneGuard | Protección Premium',
+    description: 'Protección de alto nivel para materiales de lujo',
+    images: [
+      {
+        url: `${SITE_CONFIG.url}${SITE_CONFIG.ogImage}`,
+        width: 1200,
+        height: 630,
+        alt: 'StoneGuard - Protección Premium',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'StoneGuard | Protección Premium',
+    description: 'Protección de alto nivel para materiales de lujo',
+    creator: SITE_CONFIG.twitter,
+  },
+  viewport: {
+    width: 'device-width',
+    initialScale: 1,
+    maximumScale: 5,
+  },
+  alternates: {
+    canonical: SITE_CONFIG.url,
+  },
+}
+
+export const viewport = {
+  width: 'device-width',
+  initialScale: 1,
+}
+
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode
+}) {
+  return (
+    <html lang="es" suppressHydrationWarning>
+      <head>
+        <meta charSet="utf-8" />
+        <link rel="icon" href="/favicon.ico" />
+        <link rel="canonical" href={SITE_CONFIG.url} />
+        <meta name="theme-color" content="#1a1a1a" />
+        <meta name="mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta
+          name="apple-mobile-web-app-status-bar-style"
+          content="black-translucent"
+        />
+      </head>
+      <body className="bg-white text-dark-900">
+        <Navigation />
+        <main className="min-h-screen">{children}</main>
+        <Footer />
+      </body>
+    </html>
+  )
+}
+// src/app/page.tsx
+'use client'
+
+import { Hero } from '@/components/Hero'
+import { ValueSection } from '@/components/ValueSection'
+import { BenefitsGrid } from '@/components/BenefitsGrid'
+import { StatsSection } from '@/components/StatsSection'
+import { ProductsGrid } from '@/components/ProductsGrid'
+import { TestimonialsSection } from '@/components/TestimonialsSection'
+import { CTASection } from '@/components/CTASection'
+
+export default function Home() {
+  return (
+    <>
+      <Hero />
+      <ValueSection />
+      <BenefitsGrid />
+      <StatsSection />
+      <ProductsGrid />
+      <TestimonialsSection />
+      <CTASection />
+    </>
+  )
+}
+// src/app/productos/page.tsx
+'use client'
+
+import { motion } from 'framer-motion'
+import { ProductsGrid } from '@/components/ProductsGrid'
+
+export default function ProductosPage() {
+  return (
+    <div className="pt-24">
+      {/* Hero Section */}
+      <section className="bg-dark-900 py-20">
+        <motion.div
+          className="max-w-6xl mx-auto px-6 text-center"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+        >
+          <h1 className="text-5xl md:text-6xl font-serif font-bold text-white mb-6">
+            Nuestros Productos
+          </h1>
+          <p className="text-xl text-gray-300 max-w-2xl mx-auto">
+            Tecnología nanotecnológica de punta para proteger y preservar
+            materiales de lujo
+          </p>
+        </motion.div>
+      </section>
+
+      {/* Products Grid */}
+      <ProductsGrid />
+    </div>
+  )
+}
+// src/app/productos/[slug]/page.tsx
+'use client'
+
+import Link from 'next/link'
+import { motion } from 'framer-motion'
+import { PRODUCTS } from '@/lib/constants'
+import { notFound } from 'next/navigation'
+
+interface ProductDetailPageProps {
+  params: {
+    slug: string
+  }
+}
+
+export default function ProductDetailPage({
+  params: { slug },
+}: ProductDetailPageProps) {
+  const product = PRODUCTS.find((p) => p.slug === slug)
+
+  if (!product) {
+    notFound()
+  }
+
+  return (
+    <div className="pt-24">
+      {/* Breadcrumb */}
+      <motion.div
+        className="bg-dark-900 py-6"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+      >
+        <div className="max-w-6xl mx-auto px-6 flex items-center space-x-2 text-gray-400 overflow-x-auto">
+          <Link href="/" className="hover:text-white whitespace-nowrap">
+            Inicio
+          </Link>
+          <span>/</span>
+          <Link href="/productos" className="hover:text-white whitespace-nowrap">
+            Productos
+          </Link>
+          <span>/</span>
+          <span className="text-white whitespace-nowrap">{product.name}</span>
+        </div>
+      </motion.div>
+
+      {/* Hero Section */}
+      <motion.section
+        className="bg-gradient-dark py-20"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.8 }}
+      >
+        <div className="max-w-6xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+          {/* Image */}
+          <motion.div
+            className="relative h-96 bg-dark-800 rounded-lg flex items-center justify-center order-2 md:order-1"
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ delay: 0.2 }}
+          >
+            <span className="text-white/30 text-2xl font-serif text-center px-4">
+              {product.name}
+            </span>
+          </motion.div>
+
+          {/* Content */}
+          <motion.div
+            className="order-1 md:order-2"
+            initial={{ opacity: 0, x: 20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ delay: 0.2 }}
+          >
+            <span className="text-accent-red text-sm uppercase tracking-widest font-bold">
+              {product.category}
+            </span>
+            <h1 className="text-5xl font-serif font-bold text-white mt-2 mb-4">
+              {product.name}
+            </h1>
+            <p className="text-2xl text-accent-red font-semibold mb-6">
+              "{product.tagline}"
+            </p>
+            <p className="text-gray-300 text-lg leading-relaxed mb-8">
+              {product.description}
+            </p>
+
+            {/* Specifications */}
+            <div className="grid grid-cols-2 gap-4 mb-8">
+              {Object.entries(product.specs).map(([key, value]) => (
+                <div
+                  key={key}
+                  className="bg-dark-800/50 p-4 rounded border border-dark-700"
+                >
+                  <p className="text-xs uppercase text-gray-400 mb-2">
+                    {key}
+                  </p>
+                  <p className="text-white font-semibold">{value}</p>
+                </div>
+              ))}
+            </div>
+
+            {/* CTA */}
+            <motion.div
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <Link
+                href="/contacto"
+                className="inline-block px-8 py-4 bg-accent-red text-white font-semibold rounded hover:bg-accent-red-dark transition-all"
+              >
+                Solicitar Presupuesto
+              </Link>
+            </motion.div>
+          </motion.div>
+        </div>
+      </motion.section>
+
+      {/* Benefits Section */}
+      <section className="py-20 bg-white">
+        <div className="max-w-6xl mx-auto px-6">
+          <motion.h2
+            className="text-4xl font-serif font-bold text-dark-900 mb-12"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+          >
+            Beneficios principales
+          </motion.h2>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {product.benefits.map((benefit, idx) => (
+              <motion.div
+                key={idx}
+                className="flex gap-4"
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ delay: idx * 0.1 }}
+                viewport={{ once: true }}
+              >
+                <div className="flex-shrink-0">
+                  <div className="w-8 h-8 rounded-full bg-accent-red flex items-center justify-center mt-1">
+                    <svg
+                      className="w-5 h-5 text-white"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                    >
+                      <path
+                        fillRule="evenodd"
+                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                        clipRule="evenodd"
+                      />
+                    </svg>
+                  </div>
+                </div>
+                <div>
+                  <p className="text-gray-700 font-medium">{benefit}</p>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Ideal For Section */}
+      <section className="py-20 bg-dark-900">
+        <div className="max-w-6xl mx-auto px-6">
+          <motion.h2
+            className="text-4xl font-serif font-bold text-white mb-12"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+          >
+            Ideal para:
+          </motion.h2>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {product.idealFor.map((use, idx) => (
+              <motion.div
+                key={idx}
+                className="p-6 bg-dark-800 border border-dark-700 rounded-lg text-center"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: idx * 0.1 }}
+                viewport={{ once: true }}
+                whileHover={{ borderColor: 'rgb(196, 30, 58)' }}
+              >
+                <p className="text-white font-semibold">{use}</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Related Products */}
+      <section className="py-20 bg-white">
+        <div className="max-w-6xl mx-auto px-6">
+          <motion.h2
+            className="text-4xl font-serif font-bold text-dark-900 mb-12"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+          >
+            Otros productos
+          </motion.h2>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {PRODUCTS.filter((p) => p.id !== product.id).map(
+              (relatedProduct, idx) => (
+                <motion.div
+                  key={relatedProduct.id}
+                  className="p-6 bg-gray-50 border border-gray-200 rounded-lg hover:shadow-lg transition-shadow"
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ delay: idx * 0.1 }}
+                  viewport={{ once: true }}
+                >
+                  <h3 className="text-2xl font-serif font-bold text-dark-900 mb-2">
+                    {relatedProduct.name}
+                  </h3>
+                  <p className="text-accent-red font-semibold mb-4">
+                    {relatedProduct.tagline}
+                  </p>
+                  <Link
+                    href={`/productos/${relatedProduct.slug}`}
+                    className="inline-flex items-center text-accent-red hover:text-accent-red-light font-semibold transition-colors"
+                  >
+                    Ver más
+                    <svg
+                      className="w-4 h-4 ml-2"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M9 5l7 7-7 7"
+                      />
+                    </svg>
+                  </Link>
+                </motion.div>
+              )
+            )}
+          </div>
+        </div>
+      </section>
+    </div>
+  )
+}
+// src/app/contacto/page.tsx
+'use client'
+
+import { useState } from 'react'
+import { motion } from 'framer-motion'
+import { PRODUCTS } from '@/lib/constants'
+
+interface FormData {
+  name: string
+  email: string
+  phone: string
+  company: string
+  projectType: string
+  message: string
+  product: string
+}
+
+export default function ContactoPage() {
+  const [formData, setFormData] = useState<FormData>({
+    name: '',
+    email: '',
+    phone: '',
+    company: '',
+    projectType: '',
+    message: '',
+    product: '',
+  })
+
+  const [submitted, setSubmitted] = useState(false)
+  const [isLoading, setIsLoading] = useState(false)
+
+  const handleChange = (
+    e: React.ChangeEvent<
+      HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
+    >
+  ) => {
+    const { name, value } = e.target
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value,
+    }))
+  }
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault()
+    setIsLoading(true)
+
+    // Simular envío del formulario
+    setTimeout(() => {
+      console.log('Form submitted:', formData)
+      setSubmitted(true)
+      setIsLoading(false)
+
+      // Reset después de 3 segundos
+      setTimeout(() => {
+        setSubmitted(false)
+        setFormData({
+          name: '',
+          email: '',
+          phone: '',
+          company: '',
+          projectType: '',
+          message: '',
+          product: '',
+        })
+      }, 3000)
+    }, 1000)
+  }
+
+  return (
+    <div className="pt-24">
+      {/* Hero */}
+      <motion.section
+        className="bg-dark-900 py-16"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+      >
+        <div className="max-w-6xl mx-auto px-6 text-center">
+          <h1 className="text-5xl md:text-6xl font-serif font-bold text-white mb-4">
+            Contacta con Nosotros
+          </h1>
+          <p className="text-xl text-gray-300">
+            Nuestros expertos están listos para asesorarte
+          </p>
+        </div>
+      </motion.section>
+
+      {/* Contact Section */}
+      <section className="py-20 bg-white">
+        <div className="max-w-6xl mx-auto px-6">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-16">
+            {/* Contact Info */}
+            {[
+              {
+                title: 'Teléfono',
+                value: '+1 (555) 123-4567',
+                href: 'tel:+15551234567',
+                icon: '📞',
+              },
+              {
+                title: 'Email',
+                value: 'info@stoneguard.com',
+                href: 'mailto:info@stoneguard.com',
+                icon: '✉️',
+              },
+              {
+                title: 'Ubicación',
+                value: 'Calle Piedra 123, Arquitectura City',
+                href: '#',
+                icon: '📍',
+              },
+            ].map((item, idx) => (
+              <motion.div
+                key={idx}
+                className="text-center"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: idx * 0.1 }}
+                viewport={{ once: true }}
+              >
+                <div className="text-5xl mb-4">{item.icon}</div>
+                <h3 className="text-2xl font-serif font-bold text-dark-900 mb-2">
+                  {item.title}
+                </h3>
+                <a
+                  href={item.href}
+                  className="text-accent-red hover:text-accent-red-light font-semibold transition-colors"
+                >
+                  {item.value}
+                </a>
+              </motion.div>
+            ))}
+          </div>
+
+          {/* Form */}
+          <motion.div
+            className="max-w-2xl mx-auto bg-gray-50 rounded-lg p-8 md:p-12 border border-gray-200"
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+          >
+            {submitted ? (
+              <motion.div
+                className="text-center py-12"
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+              >
+                <div className="text-6xl mb-4">✓</div>
+                <h3 className="text-2xl font-serif font-bold text-dark-900 mb-2">
+                  ¡Gracias por tu mensaje!
+                </h3>
+                <p className="text-gray-600">
+                  Nuestro equipo se pondrá en contacto contigo pronto.
+                </p>
+              </motion.div>
+            ) : (
+              <form onSubmit={handleSubmit} className="space-y-6">
+                {/* Name */}
+                <div>
+                  <label className="block text-sm font-semibold text-dark-900 mb-2">
+                    Nombre *
+                  </label>
+                  <input
+                    type="text"
+                    name="name"
+                    value={formData.name}
+                    onChange={handleChange}
+                    required
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-accent-red focus:ring-1 focus:ring-accent-red"
+                    placeholder="Tu nombre"
+                  />
+                </div>
+
+                {/* Email & Phone */}
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div>
+                    <label className="block text-sm font-semibold text-dark-900 mb-2">
+                      Email *
+                    </label>
+                    <input
+                      type="email"
+                      name="email"
+                      value={formData.email}
+                      onChange={handleChange}
+                      required
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-accent-red focus:ring-1 focus:ring-accent-red"
+                      placeholder="tu@email.com"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-sm font-semibold text-dark-900 mb-2">
+                      Teléfono
+                    </label>
+                    <input
+                      type="tel"
+                      name="phone"
+                      value={formData.phone}
+                      onChange={handleChange}
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-accent-red focus:ring-1 focus:ring-accent-red"
+                      placeholder="+1 (555) 000-0000"
+                    />
+                  </div>
+                </div>
+
+                {/* Company & Project */}
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div>
+                    <label className="block text-sm font-semibold text-dark-900 mb-2">
+                      Empresa / Proyecto
+                    </label>
+                    <input
+                      type="text"
+                      name="company"
+                      value={formData.company}
+                      onChange={handleChange}
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-accent-red focus:ring-1 focus:ring-accent-red"
+                      placeholder="Nombre del proyecto"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-sm font-semibold text-dark-900 mb-2">
+                      Tipo de Proyecto
+                    </label>
+                    <select
+                      name="projectType"
+                      value={formData.projectType}
+                      onChange={handleChange}
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-accent-red focus:ring-1 focus:ring-accent-red"
+                    >
+                      <option value="">Selecciona...</option>
+                      <option value="residencial">Residencial</option>
+                      <option value="comercial">Comercial</option>
+                      <option value="industrial">Industrial</option>
+                      <option value="otro">Otro</option>
+                    </select>
+                  </div>
+                </div>
+
+                {/* Product */}
+                <div>
+                  <label className="block text-sm font-semibold text-dark-900 mb-2">
+                    Producto de Interés
+                  </label>
+                  <select
+                    name="product"
+                    value={formData.product}
+                    onChange={handleChange}
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-accent-red focus:ring-1 focus:ring-accent-red"
+                  >
+                    <option value="">Selecciona un producto...</option>
+                    {PRODUCTS.map((product) => (
+                      <option key={product.id} value={product.id}>
+                        {product.name} - {product.tagline}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+
+                {/* Message */}
+                <div>
+                  <label className="block text-sm font-semibold text-dark-900 mb-2">
+                    Mensaje
+                  </label>
+                  <textarea
+                    name="message"
+                    value={formData.message}
+                    onChange={handleChange}
+                    rows={5}
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-accent-red focus:ring-1 focus:ring-accent-red resize-none"
+                    placeholder="Cuéntanos más sobre tu proyecto..."
+                  />
+                </div>
+
+                {/* Submit Button */}
+                <motion.button
+                  type="submit"
+                  disabled={isLoading}
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="w-full py-4 bg-accent-red text-white font-semibold rounded-lg hover:bg-accent-red-dark transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+                >
+                  {isLoading ? 'Enviando...' : 'Enviar Mensaje'}
+                </motion.button>
+              </form>
+            )}
+          </motion.div>
+        </div>
+      </section>
+    </div>
+  )
+}
+// src/app/sobre-nosotros/page.tsx
+'use client'
+
+import { motion } from 'framer-motion'
+
+export default function SobreNosotrosPage() {
+  return (
+    <div className="pt-24">
+      {/* Hero */}
+      <motion.section
+        className="bg-dark-900 py-20"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+      >
+        <div className="max-w-6xl mx-auto px-6 text-center">
+          <h1 className="text-5xl md:text-6xl font-serif font-bold text-white mb-6">
+            Sobre StoneGuard
+          </h1>
+          <p className="text-xl text-gray-300 max-w-2xl mx-auto">
+            15 años protegiendo materiales premium en Latinoamérica
+          </p>
+        </div>
+      </motion.section>
+
+      {/* Mission & Vision */}
+      <section className="py-20 bg-white">
+        <div className="max-w-6xl mx-auto px-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+            {[
+              {
+                title: 'Nuestra Misión',
+                text: 'Proteger y preservar las inversiones en materiales de lujo mediante soluciones nanotecnológicas de alto desempeño, garantizando durabilidad, estética y tranquilidad a profesionales y propietarios.',
+              },
+              {
+                title: 'Nuestra Visión',
+                text: 'Ser la marca premium de referencia en protección de superficies en Latinoamérica, reconocida por la excelencia en tecnología, innovación y servicio al cliente.',
+              },
+            ].map((item, idx) => (
+              <motion.div
+                key={idx}
+                className="space-y-4"
+                initial={{ opacity: 0, x: idx === 0 ? -20 : 20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ delay: 0.2 }}
+                viewport={{ once: true }}
+              >
+                <h2 className="text-3xl font-serif font-bold text-dark-900">
+                  {item.title}
+                </h2>
+                <p className="text-lg text-gray-700 leading-relaxed">
+                  {item.text}
+                </p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Values */}
+      <section className="py-20 bg-dark-900">
+        <div className="max-w-6xl mx-auto px-6">
+          <motion.h2
+            className="text-4xl font-serif font-bold text-white text-center mb-16"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+          >
+            Nuestros Valores
+          </motion.h2>
+
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+            {[
+              { title: 'Calidad', icon: '✨' },
+              { title: 'Innovación', icon: '🔬' },
+              { title: 'Confianza', icon: '🤝' },
+              { title: 'Sostenibilidad', icon: '🌱' },
+            ].map((value, idx) => (
+              <motion.div
+                key={idx}
+                className="text-center p-8 bg-dark-800 rounded-lg border border-dark-700"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: idx * 0.1 }}
+                viewport={{ once: true }}
+                whileHover={{ borderColor: 'rgb(196, 30, 58)' }}
+              >
+                <div className="text-5xl mb-4">{value.icon}</div>
+                <h3 className="text-2xl font-serif font-bold text-white">
+                  {value.title}
+                </h3>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Team Section */}
+      <section className="py-20 bg-white">
+        <div className="max-w-6xl mx-auto px-6">
+          <motion.h2
+            className="text-4xl font-serif font-bold text-dark-900 text-center mb-16"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+          >
+            Nuestro Equipo
+          </motion.h2>
+
+          <p className="text-center text-gray-600 text-lg max-w-2xl mx-auto">
+            Profesionales especializados con experiencia en química, ingeniería y
+            comercialización de soluciones premium para construcción.
+          </p>
+        </div>
+      </section>
+    </div>
+  )
+}
+// src/app/privacidad/page.tsx
+'use client'
+
+import { motion } from 'framer-motion'
+
+export default function PrivacidadPage() {
+  return (
+    <div className="pt-24">
+      <section className="bg-dark-900 py-16">
+        <motion.div
+          className="max-w-6xl mx-auto px-6"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+        >
+          <h1 className="text-5xl md:text-6xl font-serif font-bold text-white mb-4">
+            Política de Privacidad
+          </h1>
+        </motion.div>
+      </section>
+
+      <section className="py-20 bg-white">
+        <div className="max-w-4xl mx-auto px-6">
+          <motion.div
+            className="prose prose-lg max-w-none text-gray-700"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.2 }}
+          >
+            <h2 className="text-2xl font-bold mb-4">1. Información que Recopilamos</h2>
+            <p className="mb-6">
+              StoneGuard recopila información que proporciona voluntariamente a través
+              de formularios de contacto y otros canales de comunicación.
+            </p>
+
+            <h2 className="text-2xl font-bold mb-4">2. Uso de la Información</h2>
+            <p className="mb-6">
+              Utilizamos tu información para responder consultas, enviar información
+              solicitada y mejorar nuestros servicios.
+            </p>
+
+            <h2 className="text-2xl font-bold mb-4">3. Protección de Datos</h2>
+            <p className="mb-6">
+              Implementamos medidas de seguridad para proteger tu información personal.
+            </p>
+
+            <h2 className="text-2xl font-bold mb-4">4. Contacto</h2>
+            <p>
+              Si tienes preguntas sobre esta política, contáctanos en
+              info@stoneguard.com
+            </p>
+          </motion.div>
+        </div>
+      </section>
+    </div>
+  )
+}
+// src/app/terminos/page.tsx
+'use client'
+
+import { motion } from 'framer-motion'
+
+export default function TerminosPage() {
+  return (
+    <div className="pt-24">
+      <section className="bg-dark-900 py-16">
+        <motion.div
+          className="max-w-6xl mx-auto px-6"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+        >
+          <h1 className="text-5xl md:text-6xl font-serif font-bold text-white mb-4">
+            Términos y Condiciones
+          </h1>
+        </motion.div>
+      </section>
+
+      <section className="py-20 bg-white">
+        <div className="max-w-4xl mx-auto px-6">
+          <motion.div
+            className="prose prose-lg max-w-none text-gray-700"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.2 }}
+          >
+            <h2 className="text-2xl font-bold mb-4">1. Aceptación de Términos</h2>
+            <p className="mb-6">
+              Al acceder y utilizar este sitio web, aceptas estos términos y
+              condiciones en su totalidad.
+            </p>
+
+            <h2 className="text-2xl font-bold mb-4">2. Uso Autorizado</h2>
+            <p className="mb-6">
+              Este sitio es para uso personal y no comercial. No puedes reproducir,
+              distribuir o transmitir contenido sin autorización.
+            </p>
+
+            <h2 className="text-2xl font-bold mb-4">3. Limitación de Responsabilidad</h2>
+            <p className="mb-6">
+              StoneGuard no es responsable por daños indirectos, incidentales o
+              consecuentes derivados del uso del sitio.
+            </p>
+
+            <h2 className="text-2xl font-bold mb-4">4. Modificaciones</h2>
+            <p>
+              Nos reservamos el derecho de modificar estos términos en cualquier
+              momento.
+            </p>
+          </motion.div>
+        </div>
+      </section>
+    </div>
+  )
+}
+// src/app/garantia/page.tsx
+'use client'
+
+import { motion } from 'framer-motion'
+
+export default function GarantiaPage() {
+  return (
+    <div className="pt-24">
+      <section className="bg-dark-900 py-16">
+        <motion.div
+          className="max-w-6xl mx-auto px-6"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+        >
+          <h1 className="text-5xl md:text-6xl font-serif font-bold text-white mb-4">
+            Garantía StoneGuard
+          </h1>
+        </motion.div>
+      </section>
+
+      <section className="py-20 bg-white">
+        <div className="max-w-4xl mx-auto px-6">
+          <motion.div
+            className="prose prose-lg max-w-none text-gray-700"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.2 }}
+          >
+            <h2 className="text-2xl font-bold mb-4">
+              100% Garantía de Efectividad
+            </h2>
+            <p className="mb-6">
+              Todos los productos StoneGuard cuentan con garantía de efectividad.
+            </p>
+
+            <h2 className="text-2xl font-bold mb-4">Cobertura de Garantía</h2>
+            <ul className="list-disc pl-6 mb-6">
+              <li>StoneGuard STF: 5-10 años</li>
+              <li>StoneGuard SFT-2: 7-12 años</li>
+              <li>StoneGuard Oleofóbico Q: 10-15 años</li>
+            </ul>
+
+            <h2 className="text-2xl font-bold mb-4">Condiciones</h2>
+            <p className="mb-6">
+              La garantía cubre defectos de fabricación y cumplimiento de especificaciones
+              técnicas bajo uso normal y aplicación correcta.
+            </p>
+
+            <h2 className="text-2xl font-bold mb-4">Reclamos</h2>
+            <p>
+              Para hacer válida la garantía, contacta a info@stoneguard.com con
+              evidencia fotográfica del problema.
+            </p>
+          </motion.div>
+        </div>
+      </section>
+    </div>
+  )
+}
+# 🏗️ StoneGuard — Sitio Web Premium
+
+Sitio web de alta conversión para StoneGuard, marca premium de selladores
+nanotecnológicos y protección de superficies de lujo.
+
+## 🎯 Características Principales
+
+✅ **Diseño Premium Dark-Luxury**: Estética profesional con acentos rojos metálicos
+✅ **Optimización de Conversión**: Múltiples CTAs estratégicamente ubicadas
+✅ **Responsive Design**: Funcional en todos los dispositivos (mobile, tablet, desktop)
+✅ **Performance**: Optimizado para Lighthouse, Core Web Vitals, PageSpeed Insights
+✅ **SEO Ready**: Meta tags, Open Graph, estructuración semántica, sitemaps
+✅ **Animaciones Suaves**: Framer Motion para transiciones elegantes
+✅ **Componentes Reutilizables**: Arquitectura escalable y mantenible
+✅ **TypeScript**: Type safety completo en todo el proyecto
+✅ **Producción Ready**: Listo para desplegar en Vercel
+
+## 🛠️ Stack Tecnológico
+
+| Tecnología | Versión | Propósito |
+|-----------|---------|-----------|
+| **Next.js** | ^14.0.0 | Framework React moderno |
+| **React** | ^18.2.0 | Librería UI |
+| **TypeScript** | ^5.0.0 | Type safety |
+| **Tailwind CSS** | ^3.3.0 | Estilos utility-first |
+| **Framer Motion** | ^10.16.0 | Animaciones |
+| **React Intersection Observer** | ^9.5.0 | Lazy loading |
+
+## 📦 Instalación Rápida
+
+### Opción 1: Clonar y configurar
+
+```bash
+# Clonar el repositorio
+git clone <tu-repo-url>
+cd stoneguard
+
+# Instalar dependencias
+npm install
+
+# Ejecutar en desarrollo
+npm run dev
+
+# Abrir en el navegador
+# http://localhost:3000
+stoneguard/
+├── src/
+│   ├── app/
+│   │   ├── layout.tsx              # Layout principal
+│   │   ├── page.tsx                # Home page
+│   │   ├── globals.css             # Estilos globales
+│   │   ├── productos/
+│   │   │   ├── page.tsx            # Listado productos
+│   │   │   └── [slug]/page.tsx     # Detalle producto
+│   │   ├── contacto/page.tsx       # Formulario contacto
+│   │   ├── sobre-nosotros/page.tsx # Página empresa
+│   │   ├── privacidad/page.tsx     # Política privacidad
+│   │   ├── terminos/page.tsx       # Términos y condiciones
+│   │   └── garantia/page.tsx       # Información garantía
+│   ├── components/
+│   │   ├── Navigation.tsx          # Navbar
+│   │   ├── Footer.tsx              # Footer
+│   │   ├── Hero.tsx                # Hero section
+│   │   ├── ValueSection.tsx        # Propuesta de valor
+│   │   ├── BenefitsGrid.tsx        # Grid beneficios
+│   │   ├── ProductsGrid.tsx        # Grid productos
+│   │   ├── ProductCard.tsx         # Card producto
+│   │   ├── StatsSection.tsx        # Estadísticas
+│   │   ├── TestimonialsSection.tsx # Testimonios
+│   │   └── CTASection.tsx          # Llamada a acción
+│   └── lib/
+│       └── constants.ts            # Datos y configuración
+├── public/
+│   ├── favicon.ico
+│   └── robots.txt
+├── .eslintrc.json
+├── .gitignore
+├── next.config.js
+├── tailwind.config.ts
+├── postcss.config.js
+├── tsconfig.json
+├── package.json
+├── vercel.json
+└── README.md
+# Desarrollo
+npm run dev              # Inicia servidor dev (localhost:3000)
+
+# Build
+npm run build            # Crea build de producción
+npm start                # Inicia servidor de producción
+
+# Linting y testing
+npm run lint             # Ejecuta ESLint
+npm run type-check       # Verifica tipos TypeScript
+npm run format           # Formatea código con Prettier
+
+# Utilidades
+npm install              # Instala dependencias
+npm update               # Actualiza dependencias
+npm audit                # Audita vulnerabilidades
+Dark-Luxury Theme:
+├─ Negro Profundo:     #1a1a1a
+├─ Gris Grafito:       #4a4a4a
+├─ Blanco:             #ffffff
+├─ Rojo Metálico:      #c41e3a (Accent)
+├─ Rojo Oscuro:        #a01830
+└─ Rojo Claro:         #e63946
+Mobile:   < 640px   (base)
+Tablet:   640px     (sm)
+Desktop:  768px     (md)
+Large:    1024px    (lg)
+XLarge:   1280px    (xl)
+2XLarge:  1536px    (2xl)
+
