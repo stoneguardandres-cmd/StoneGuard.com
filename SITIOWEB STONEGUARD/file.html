@@ -1,0 +1,1619 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StoneGuard | Protección Premium de Superficies Minerales</title>
+    <meta name="description" content="StoneGuard ofrece soluciones de impermeabilización nanotecnológica con tecnología Wall-Fine. Protección de mármol, piedra y concreto con garantía de 2-25 años.">
+    <meta name="keywords" content="impermeabilizante mármol, protector piedra, sellador concreto, Wall-Fine, nanotecnología, Ciudad de México">
+    <meta property="og:title" content="StoneGuard - Protección de Superficies Minerales Premium">
+    <meta property="og:description" content="Impermeabilización nanotecnológica para mármol, piedra y concreto. Tecnología Wall-Fine con 25+ años de experiencia.">
+    <meta property="og:type" content="website">
+    <meta name="author" content="StoneGuard">
+    <meta name="robots" content="index, follow">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect fill='%23000' width='100' height='100'/><text x='50' y='50' font-size='60' fill='%23c9a961' text-anchor='middle' dominant-baseline='middle' font-weight='bold'>S</text></svg>" type="image/svg+xml">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --black: #000000;
+            --graphite: #2a2a2a;
+            --white: #ffffff;
+            --gray-50: #f7f7f7;
+            --gray-100: #efefef;
+            --deep-red: #8b1a1a;
+            --light-red: #c41e3a;
+            --accent-gold: #c9a961;
+            --section-padding: 10rem;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 80px;
+        }
+
+        body {
+            font-family: 'Cormorant Garamond', serif;
+            color: var(--graphite);
+            background: var(--white);
+            line-height: 1.8;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+        }
+
+        button, .cta, .btn {
+            font-family: 'Inter', sans-serif;
+        }
+
+        /* ===== HERO SECTION ===== */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(135deg, var(--black) 0%, var(--graphite) 100%);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(201, 169, 97, 0.1) 0%, transparent 70%);
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(201, 169, 97, 0.05) 0%, transparent 70%);
+            animation: float 8s ease-in-out infinite reverse;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translate(0, 0);
+            }
+            50% {
+                transform: translate(50px, -50px);
+            }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            max-width: 900px;
+            padding: 2rem;
+        }
+
+        .hero h1 {
+            font-size: clamp(3rem, 8vw, 5.5rem);
+            color: var(--white);
+            margin-bottom: 1rem;
+            line-height: 1.1;
+            letter-spacing: -0.02em;
+            font-weight: 900;
+        }
+
+        .hero-subtitle {
+            font-size: clamp(1rem, 2vw, 1.3rem);
+            color: var(--gray-50);
+            margin-bottom: 2rem;
+            font-weight: 300;
+            letter-spacing: 0.05em;
+        }
+
+        .hero-cta {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 1rem 2.5rem;
+            font-size: clamp(0.85rem, 1vw, 0.95rem);
+            border: 2px solid var(--accent-gold);
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            font-weight: 500;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            border-radius: 0;
+        }
+
+        .btn-primary {
+            background: var(--accent-gold);
+            color: var(--black);
+        }
+
+        .btn-primary:hover {
+            background: transparent;
+            color: var(--accent-gold);
+            transform: translateY(-3px);
+            box-shadow: 0 20px 40px rgba(201, 169, 97, 0.2);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--accent-gold);
+        }
+
+        .btn-secondary:hover {
+            background: var(--accent-gold);
+            color: var(--black);
+            transform: translateY(-3px);
+            box-shadow: 0 20px 40px rgba(201, 169, 97, 0.2);
+        }
+
+        /* ===== SECTION LAYOUT ===== */
+        section {
+            padding: var(--section-padding) 2rem;
+            border-top: 1px solid #e5e5e5;
+            position: relative;
+        }
+
+        section:first-of-type {
+            border-top: none;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 5rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .section-header h2 {
+            font-size: clamp(2.2rem, 5vw, 3.5rem);
+            color: var(--black);
+            margin-bottom: 1rem;
+            font-weight: 900;
+        }
+
+        .section-header p {
+            font-size: clamp(0.95rem, 1.5vw, 1.15rem);
+            color: var(--graphite);
+        }
+
+        /* ===== WHY PROTECT SECTION ===== */
+        .why-protect {
+            background: var(--gray-50);
+        }
+
+        .why-protect .section-header h2 {
+            color: var(--black);
+        }
+
+        .protection-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .protection-card {
+            background: var(--white);
+            padding: 2.5rem;
+            border: 1px solid #e5e5e5;
+            position: relative;
+            transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            opacity: 0;
+        }
+
+        .protection-card.in-view {
+            animation: fadeUp 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+        }
+
+        .protection-card:nth-child(1).in-view {
+            animation-delay: 0.1s;
+        }
+
+        .protection-card:nth-child(2).in-view {
+            animation-delay: 0.2s;
+        }
+
+        .protection-card:nth-child(3).in-view {
+            animation-delay: 0.3s;
+        }
+
+        .protection-card:nth-child(4).in-view {
+            animation-delay: 0.4s;
+        }
+
+        .protection-card:nth-child(5).in-view {
+            animation-delay: 0.5s;
+        }
+
+        .protection-card:nth-child(6).in-view {
+            animation-delay: 0.6s;
+        }
+
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .protection-card:hover {
+            border-color: var(--accent-gold);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+            transform: translateY(-5px);
+        }
+
+        .protection-card h3 {
+            font-size: clamp(1.3rem, 2vw, 1.5rem);
+            margin-bottom: 1rem;
+            color: var(--black);
+            font-weight: 700;
+        }
+
+        .protection-card p {
+            font-size: 0.95rem;
+            line-height: 1.7;
+            color: var(--graphite);
+        }
+
+        /* ===== PRODUCTS SECTION ===== */
+        .products {
+            background: var(--white);
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .product-card {
+            background: var(--white);
+            border: 1px solid #e5e5e5;
+            padding: 2.5rem;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            opacity: 0;
+        }
+
+        .product-card.in-view {
+            animation: fadeUp 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+        }
+
+        .product-card:nth-child(1).in-view {
+            animation-delay: 0.1s;
+        }
+
+        .product-card:nth-child(2).in-view {
+            animation-delay: 0.2s;
+        }
+
+        .product-card:nth-child(3).in-view {
+            animation-delay: 0.3s;
+        }
+
+        .product-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--accent-gold);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .product-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .product-card:hover {
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+            border-color: var(--accent-gold);
+            transform: translateY(-5px);
+        }
+
+        .product-badge {
+            display: inline-block;
+            background: var(--light-red);
+            color: white;
+            padding: 0.4rem 1rem;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .product-card h3 {
+            font-size: clamp(1.5rem, 3vw, 1.8rem);
+            margin-bottom: 0.5rem;
+            color: var(--black);
+            font-weight: 700;
+        }
+
+        .product-card > p {
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: 1rem;
+        }
+
+        .product-price {
+            font-size: clamp(1.3rem, 2vw, 1.5rem);
+            color: var(--light-red);
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+            letter-spacing: 0.02em;
+        }
+
+        .product-specs {
+            list-style: none;
+            margin: 1.5rem 0;
+            font-size: 0.9rem;
+        }
+
+        .product-specs li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #e5e5e5;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .product-specs li:last-child {
+            border-bottom: none;
+        }
+
+        .specs-label {
+            font-weight: 500;
+            color: var(--graphite);
+        }
+
+        .specs-value {
+            color: var(--light-red);
+            font-weight: 600;
+            text-align: right;
+        }
+
+        .product-description {
+            font-size: 0.85rem;
+            color: #666;
+            margin-top: 1rem;
+            line-height: 1.6;
+            border-top: 1px solid #e5e5e5;
+            padding-top: 1rem;
+        }
+
+        /* ===== TECHNICAL SPECS SECTION ===== */
+        .technical-specs {
+            background: var(--black);
+            color: var(--white);
+        }
+
+        .technical-specs .section-header h2,
+        .technical-specs .section-header p {
+            color: var(--white);
+        }
+
+        .specs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .spec-box {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--accent-gold);
+            padding: 2rem;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            opacity: 0;
+        }
+
+        .spec-box.in-view {
+            animation: fadeUp 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+        }
+
+        .spec-box:nth-child(1).in-view {
+            animation-delay: 0.1s;
+        }
+
+        .spec-box:nth-child(2).in-view {
+            animation-delay: 0.2s;
+        }
+
+        .spec-box:nth-child(3).in-view {
+            animation-delay: 0.3s;
+        }
+
+        .spec-box:nth-child(4).in-view {
+            animation-delay: 0.4s;
+        }
+
+        .spec-box:hover {
+            background: rgba(201, 169, 97, 0.1);
+            transform: translateY(-5px);
+        }
+
+        .spec-box h4 {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            color: var(--accent-gold);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            font-weight: 700;
+        }
+
+        .spec-data {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            font-size: 0.9rem;
+        }
+
+        .spec-item {
+            border-left: 2px solid var(--accent-gold);
+            padding-left: 1rem;
+        }
+
+        .spec-item-label {
+            font-size: 0.75rem;
+            color: #aaa;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 0.3rem;
+            font-weight: 600;
+        }
+
+        .spec-item-value {
+            color: var(--accent-gold);
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        /* ===== COMPARISON TABLE ===== */
+        .comparison-section {
+            background: var(--white);
+        }
+
+        .table-wrapper {
+            overflow-x: auto;
+            margin-top: 3rem;
+            border: 1px solid #e5e5e5;
+        }
+
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 800px;
+        }
+
+        .comparison-table th {
+            background: var(--black);
+            color: var(--white);
+            padding: 1.2rem;
+            text-align: left;
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            border: 1px solid #333;
+        }
+
+        .comparison-table td {
+            padding: 1.2rem;
+            border: 1px solid #e5e5e5;
+            font-size: 0.95rem;
+        }
+
+        .comparison-table tr:nth-child(even) td {
+            background: var(--gray-50);
+        }
+
+        .comparison-table tr:hover td {
+            background: #f0f0f0;
+        }
+
+        .feature-name {
+            font-weight: 600;
+            color: var(--black);
+            min-width: 200px;
+        }
+
+        .feature-value {
+            color: var(--light-red);
+            font-weight: 600;
+        }
+
+        .feature-check {
+            color: var(--accent-gold);
+            font-weight: 700;
+        }
+
+        /* ===== FLOATING WHATSAPP BUTTON ===== */
+        .floating-whatsapp {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #25d366 0%, #128c7e 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 999;
+            box-shadow: 0 10px 40px rgba(37, 211, 102, 0.3);
+            animation: pulse-glow 2s ease-in-out infinite;
+            transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            border: none;
+            padding: 0;
+        }
+
+        @keyframes pulse-glow {
+            0%, 100% {
+                box-shadow: 0 10px 40px rgba(37, 211, 102, 0.3);
+            }
+            50% {
+                box-shadow: 0 10px 60px rgba(37, 211, 102, 0.6);
+            }
+        }
+
+        .floating-whatsapp:hover {
+            transform: scale(1.1);
+        }
+
+        .floating-whatsapp:active {
+            transform: scale(0.95);
+        }
+
+        .floating-whatsapp svg {
+            width: 28px;
+            height: 28px;
+            fill: white;
+        }
+
+        .whatsapp-badge {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            background: var(--light-red);
+            color: white;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.7rem;
+            font-weight: 700;
+            animation: badgePulse 1.5s ease-in-out infinite;
+        }
+
+        @keyframes badgePulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.2);
+            }
+        }
+
+        .whatsapp-tooltip {
+            position: absolute;
+            bottom: 80px;
+            right: 0;
+            background: rgba(0, 0, 0, 0.95);
+            color: white;
+            padding: 1rem 1.2rem;
+            border-radius: 0;
+            font-size: 0.85rem;
+            white-space: nowrap;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            pointer-events: none;
+            border: 1px solid var(--accent-gold);
+        }
+
+        .whatsapp-tooltip::after {
+            content: '';
+            position: absolute;
+            bottom: -9px;
+            right: 15px;
+            width: 0;
+            height: 0;
+            border-left: 8px solid transparent;
+            border-right: 8px solid transparent;
+            border-top: 8px solid rgba(0, 0, 0, 0.95);
+        }
+
+        .floating-whatsapp:hover .whatsapp-tooltip {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        /* ===== CONTACT FORM ===== */
+        .contact-form-section {
+            background: var(--gray-50);
+        }
+
+        .form-container {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .form-group {
+            display: grid;
+            gap: 1.5rem;
+        }
+
+        .form-field {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-field label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: var(--black);
+            font-size: 0.95rem;
+            letter-spacing: 0.02em;
+        }
+
+        .form-field input,
+        .form-field select,
+        .form-field textarea {
+            padding: 0.8rem 1rem;
+            border: 1px solid #ddd;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            color: var(--graphite);
+            background: var(--white);
+        }
+
+        .form-field input:focus,
+        .form-field select:focus,
+        .form-field textarea:focus {
+            outline: none;
+            border-color: var(--accent-gold);
+            box-shadow: 0 0 0 3px rgba(201, 169, 97, 0.1);
+        }
+
+        .form-field textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .form-submit {
+            width: 100%;
+            padding: 1.2rem;
+            margin-top: 1rem;
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            background: var(--black);
+            color: var(--white);
+            padding: 3rem 2rem;
+            border-top: 1px solid var(--accent-gold);
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .footer-section h4 {
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            color: var(--accent-gold);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            font-weight: 700;
+        }
+
+        .footer-section p {
+            font-size: 0.9rem;
+            line-height: 1.8;
+            color: #aaa;
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-section a {
+            color: #aaa;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            color: var(--accent-gold);
+        }
+
+        .footer-section strong {
+            color: var(--white);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--accent-gold);
+            font-size: 0.85rem;
+            color: #777;
+        }
+
+        /* ===== RESPONSIVE DESIGN ===== */
+        @media (max-width: 1024px) {
+            :root {
+                --section-padding: 6rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            :root {
+                --section-padding: 4rem;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1rem;
+            }
+
+            .hero-cta {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+            }
+
+            section {
+                padding: 4rem 1.5rem;
+            }
+
+            .section-header {
+                margin-bottom: 3rem;
+            }
+
+            .protection-grid,
+            .products-grid,
+            .specs-grid {
+                gap: 2rem;
+            }
+
+            .protection-card,
+            .product-card,
+            .spec-box {
+                padding: 1.5rem;
+            }
+
+            .table-wrapper {
+                border: none;
+            }
+
+            .comparison-table {
+                font-size: 0.85rem;
+            }
+
+            .comparison-table th,
+            .comparison-table td {
+                padding: 0.8rem;
+            }
+
+            .feature-name {
+                min-width: 140px;
+            }
+
+            .floating-whatsapp {
+                bottom: 1.5rem;
+                right: 1.5rem;
+                width: 50px;
+                height: 50px;
+            }
+
+            .floating-whatsapp svg {
+                width: 24px;
+                height: 24px;
+            }
+
+            .whatsapp-tooltip {
+                font-size: 0.75rem;
+                padding: 0.8rem 1rem;
+                white-space: normal;
+                width: 150px;
+                bottom: 70px;
+                right: -25px;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            :root {
+                --section-padding: 2.5rem;
+            }
+
+            .hero {
+                height: auto;
+                min-height: 100vh;
+                padding: 2rem 0;
+            }
+
+            .hero-content {
+                padding: 1rem;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+                margin-bottom: 1.5rem;
+            }
+
+            .hero-subtitle {
+                font-size: 0.95rem;
+                margin-bottom: 1.5rem;
+            }
+
+            .hero-cta {
+                gap: 1rem;
+            }
+
+            .btn {
+                padding: 0.85rem 1.5rem;
+                font-size: 0.8rem;
+            }
+
+            section {
+                padding: 3rem 1rem;
+            }
+
+            .section-header {
+                margin-bottom: 2rem;
+            }
+
+            .section-header h2 {
+                font-size: 1.8rem;
+            }
+
+            .section-header p {
+                font-size: 0.9rem;
+            }
+
+            .protection-grid,
+            .products-grid,
+            .specs-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .protection-card,
+            .product-card,
+            .spec-box {
+                padding: 1.2rem;
+            }
+
+            .protection-card h3,
+            .product-card h3 {
+                font-size: 1.3rem;
+            }
+
+            .product-price {
+                font-size: 1.2rem;
+            }
+
+            .product-specs {
+                font-size: 0.85rem;
+            }
+
+            .comparison-table {
+                font-size: 0.75rem;
+            }
+
+            .comparison-table th,
+            .comparison-table td {
+                padding: 0.5rem;
+            }
+
+            .spec-data {
+                grid-template-columns: 1fr;
+            }
+
+            .form-field input,
+            .form-field select,
+            .form-field textarea {
+                font-size: 16px;
+            }
+
+            .floating-whatsapp {
+                bottom: 1rem;
+                right: 1rem;
+                width: 50px;
+                height: 50px;
+            }
+
+            footer {
+                padding: 2rem 1rem;
+            }
+
+            .footer-section h4 {
+                font-size: 0.95rem;
+            }
+
+            .footer-section p {
+                font-size: 0.85rem;
+            }
+        }
+
+        /* ===== UTILITY CLASSES ===== */
+        .max-width {
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .mt-1 {
+            margin-top: 1rem;
+        }
+
+        .mt-2 {
+            margin-top: 2rem;
+        }
+
+        .mb-1 {
+            margin-bottom: 1rem;
+        }
+
+        .mb-2 {
+            margin-bottom: 2rem;
+        }
+
+        /* ===== SCROLL ANIMATIONS ===== */
+        .scroll-fade {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .scroll-fade.in-view {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+
+<!-- ===== HERO SECTION ===== -->
+<section class="hero" id="hero">
+    <div class="hero-content">
+        <h1>Protección Mineral Premium</h1>
+        <p class="hero-subtitle">Impermeabilización nanotecnológica con tecnología Wall-Fine. 25+ años de excelencia.</p>
+        <div class="hero-cta">
+            <button class="btn btn-primary" onclick="document.getElementById('products').scrollIntoView({behavior: 'smooth'})">Explorar Productos</button>
+            <button class="btn btn-secondary" onclick="openWhatsAppChat('presupuesto')">Solicitar Presupuesto</button>
+        </div>
+    </div>
+</section>
+
+<!-- ===== WHY PROTECT SECTION ===== -->
+<section class="why-protect" id="why-protect">
+    <div class="max-width">
+        <div class="section-header">
+            <h2>¿Por Qué Proteger Tus Superficies?</h2>
+            <p>La impermeabilización es una inversión en durabilidad, estética y valor a largo plazo de tus activos más valiosos.</p>
+        </div>
+        
+        <div class="protection-grid">
+            <div class="protection-card">
+                <h3>🌊 Resistencia Hidrostática</h3>
+                <p>Nuestros impermeabilizantes crean una barrera microscópica que impide el paso del agua sin bloquear la transpiración. Previene filtraciones, salinidad y eflorescencia en estructuras.</p>
+            </div>
+            
+            <div class="protection-card">
+                <h3>🔬 Tecnología Nanotecnológica</h3>
+                <p>La microcristalización a nivel nanométrico (millonésima de milímetro) se adhiere permanentemente a los poros del material, creando protección integral y duradera.</p>
+            </div>
+            
+            <div class="protection-card">
+                <h3>🛡️ Protección Química y Biológica</h3>
+                <p>Resiste lluvia ácida, excrementos de aves, derrames de grasas, aceites y productos químicos. Previene musgo, líquen, hongos y bacterias que causan manchas.</p>
+            </div>
+            
+            <div class="protection-card">
+                <h3>🌡️ Resistencia Extrema</h3>
+                <p>Soporta temperaturas desde -40°C hasta +570°C sin perder propiedades. Garantía de 2 a 25 años según producto, con almacenamiento seguro de 12 meses.</p>
+            </div>
+            
+            <div class="protection-card">
+                <h3>✨ Mantiene Apariencia Natural</h3>
+                <p>Los impermeabilizantes transpirables permiten que el material respire, evitando condensación, oscurecimiento prematuro y alteración de color o textura original.</p>
+            </div>
+            
+            <div class="protection-card">
+                <h3>🌱 Sustentabilidad</h3>
+                <p>Productos ecológicos sin solventes contaminantes, libres de sales y minerales. Formulados con agua destilada de ósmosis inversa para máxima pureza.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== PRODUCTS SECTION ===== -->
+<section class="products" id="products">
+    <div class="max-width">
+        <div class="section-header">
+            <h2>Línea Premium StoneGuard</h2>
+            <p>Tres niveles de protección para cada necesidad. Tecnología Wall-Fine integrada en cada producto.</p>
+        </div>
+        
+        <div class="products-grid">
+            <!-- SealStone Pro -->
+            <div class="product-card">
+                <span class="product-badge">Entrada</span>
+                <h3>SealStone Pro</h3>
+                <p>Base: SFT Siliconatos (Agua)</p>
+                <div class="product-price">$450 MXN+</div>
+                
+                <ul class="product-specs">
+                    <li><span class="specs-label">Rendimiento</span> <span class="specs-value">2-8 m²/L</span></li>
+                    <li><span class="specs-label">Garantía</span> <span class="specs-value">2 años</span></li>
+                    <li><span class="specs-label">Secado</span> <span class="specs-value">4-8 horas</span></li>
+                    <li><span class="specs-label">Transpiración</span> <span class="specs-value">✓ Sí</span></li>
+                    <li><span class="specs-label">Apariencia</span> <span class="specs-value">Natural</span></li>
+                </ul>
+                
+                <div class="product-description">
+                    <strong>Ideal para:</strong> Fachadas residenciales, muros exteriores, piedra volcánica, ladrillo, adoquín.
+                </div>
+                
+                <button class="btn btn-secondary" style="width: 100%; margin-top: 1.5rem;" onclick="openWhatsAppChat('SealStone Pro')">Cotizar Ahora</button>
+            </div>
+            
+            <!-- GuardShield Ultra -->
+            <div class="product-card">
+                <span class="product-badge">Profesional</span>
+                <h3>GuardShield Ultra</h3>
+                <p>Base: IMPER-FIBRA Acrílico</p>
+                <div class="product-price">$750 MXN+</div>
+                
+                <ul class="product-specs">
+                    <li><span class="specs-label">Rendimiento</span> <span class="specs-value">1-1.5 m²/L</span></li>
+                    <li><span class="specs-label">Garantía</span> <span class="specs-value">5 años</span></li>
+                    <li><span class="specs-label">Elongación</span> <span class="specs-value">100% mín</span></li>
+                    <li><span class="specs-label">Elasticidad</span> <span class="specs-value">Alta</span></li>
+                    <li><span class="specs-label">Grietas Activas</span> <span class="specs-value">✓ Resiste</span></li>
+                </ul>
+                
+                <div class="product-description">
+                    <strong>Ideal para:</strong> Pisos de tránsito peatonal, terrazas, losas, estructuras con movimiento.
+                </div>
+                
+                <button class="btn btn-secondary" style="width: 100%; margin-top: 1.5rem;" onclick="openWhatsAppChat('GuardShield Ultra')">Cotizar Ahora</button>
+            </div>
+            
+            <!-- Prestige Luxe -->
+            <div class="product-card">
+                <span class="product-badge">Máxima Protección</span>
+                <h3>Prestige Luxe</h3>
+                <p>Base: IMPER-NANOTEC + Wall Tex AR</p>
+                <div class="product-price">$1,200 MXN+</div>
+                
+                <ul class="product-specs">
+                    <li><span class="specs-label">Rendimiento</span> <span class="specs-value">1-1.2 m²/L</span></li>
+                    <li><span class="specs-label">Garantía</span> <span class="specs-value">Vitalicia</span></li>
+                    <li><span class="specs-label">Cristalización</span> <span class="specs-value">Doble capa</span></li>
+                    <li><span class="specs-label">Transpiración</span> <span class="specs-value">✓ Sí</span></li>
+                    <li><span class="specs-label">Entorno Hidráulico</span> <span class="specs-value">✓ Sí</span></li>
+                </ul>
+                
+                <div class="product-description">
+                    <strong>Ideal para:</strong> Cisternas, piscinas, mármol y piedra natural de alto valor, proyectos comerciales.
+                </div>
+                
+                <button class="btn btn-primary" style="width: 100%; margin-top: 1.5rem;" onclick="openWhatsAppChat('Prestige Luxe')">Solicitar Asesoramiento</button>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== TECHNICAL SPECIFICATIONS SECTION ===== -->
+<section class="technical-specs" id="tech-specs">
+    <div class="max-width">
+        <div class="section-header">
+            <h2>Especificaciones Técnicas Avanzadas</h2>
+            <p>Cada producto StoneGuard integra tecnología Wall-Fine con estándares de calidad de exportación certificados.</p>
+        </div>
+        
+        <div class="specs-grid">
+            <!-- SFT Siliconatos -->
+            <div class="spec-box">
+                <h4>SFT Siliconatos</h4>
+                <div class="spec-data">
+                    <div class="spec-item">
+                        <div class="spec-item-label">Densidad</div>
+                        <div class="spec-item-value">0.98-1.0 g/ml</div>
+                    </div>
+                    <div class="spec-item">
+                        <div class="spec-item-label">pH</div>
+                        <div class="spec-item-value">6.8</div>
+                    </div>
+                    <div class="spec-item">
+                        <div class="spec-item-label">Sólidos</div>
+                        <div class="spec-item-value">32 PPM</div>
+                    </div>
+                    <div class="spec-item">
+                        <div class="spec-item-label">Res. Temperatura</div>
+                        <div class="spec-item-value">570°C</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- IMPER-FIBRA Acrílico -->
+            <div class="spec-box">
+                <h4>IMPER-FIBRA Acrílico</h4>
+                <div class="spec-data">
+                    <div class="spec-item">
+                        <div class="spec-item-label">Densidad</div>
+                        <div class="spec-item-value">1.27-1.33 g/ml</div>
+                    </div>
+                    <div class="spec-item">
+                        <div class="spec-item-label">Elongación</div>
+                        <div class="spec-item-value">100% mín</div>
+                    </div>
+                    <div class="spec-item">
+                        <div class="spec-item-label">Compresión 28d</div>
+                        <div class="spec-item-value">450 kg/cm²</div>
+                    </div>
+                    <div class="spec-item">
+                        <div class="spec-item-label">Resistencia UV</div>
+                        <div class="spec-item-value">✓ Alta</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- IMPER-NANOTEC -->
+            <div class="spec-box">
+                <h4>IMPER-NANOTEC</h4>
+                <div class="spec-data">
+                    <div class="spec-item">
+                        <div class="spec-item-label">Cristales</div>
+                        <div class="spec-item-value">Nanométricos</div>
+                    </div>
+                    <div class="spec-item">
+                        <div class="spec-item-label">Adhesión</div>
+                        <div class="spec-item-value">Permanente</div>
+                    </div>
+                    <div class="spec-item">
+                        <div class="spec-item-label">Transpiración</div>
+                        <div class="spec-item-value">✓ Máxima</div>
+                    </div>
+                    <div class="spec-item">
+                        <div class="spec-item-label">Aislamiento Térmico</div>
+                        <div class="spec-item-value">✓ Reducido</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Wall Tex AR -->
+            <div class="spec-box">
+                <h4>Wall Tex AR</h4>
+                <div class="spec-data">
+                    <div class="spec-item">
+                        <div class="spec-item-label">Mecanismo</div>
+                        <div class="spec-item-value">Cristalización</div>
+                    </div>
+                    <div class="spec-item">
+                        <div class="spec-item-label">Aplicación</div>
+                        <div class="spec-item-value">2 capas mín</div>
+                    </div>
+                    <div class="spec-item">
+                        <div class="spec-item-label">Presión Hidro.</div>
+                        <div class="spec-item-value">✓ Resiste</div>
+                    </div>
+                    <div class="spec-item">
+                        <div class="spec-item-label">Ácidos/Bases</div>
+                        <div class="spec-item-value">✓ Resiste</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== COMPARISON TABLE ===== -->
+<section class="comparison-section" id="comparison">
+    <div class="max-width">
+        <div class="section-header">
+            <h2>Comparativa de Productos</h2>
+            <p>Selecciona el impermeabilizante que se adapte a tus necesidades específicas.</p>
+        </div>
+        
+        <div class="table-wrapper">
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th>Característica</th>
+                        <th>SealStone Pro</th>
+                        <th>GuardShield Ultra</th>
+                        <th>Prestige Luxe</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="feature-name">Tecnología Base</td>
+                        <td>SFT Siliconatos (Agua)</td>
+                        <td>IMPER-FIBRA Acrílico</td>
+                        <td>IMPER-NANOTEC + Wall Tex AR</td>
+                    </tr>
+                    <tr>
+                        <td class="feature-name">Rendimiento</td>
+                        <td class="feature-value">2-8 m²/L</td>
+                        <td class="feature-value">1-1.5 m²/L</td>
+                        <td class="feature-value">1-1.2 m²/L</td>
+                    </tr>
+                    <tr>
+                        <td class="feature-name">Precio Base</td>
+                        <td class="feature-value">$450 MXN</td>
+                        <td class="feature-value">$750 MXN</td>
+                        <td class="feature-value">$1,200 MXN</td>
+                    </tr>
+                    <tr>
+                        <td class="feature-name">Garantía</td>
+                        <td class="feature-value">2 años</td>
+                        <td class="feature-value">5 años</td>
+                        <td class="feature-value">Vitalicia</td>
+                    </tr>
+                    <tr>
+                        <td class="feature-name">Transpiración</td>
+                        <td class="feature-check">✓ Sí</td>
+                        <td>No</td>
+                        <td class="feature-check">✓ Máxima</td>
+                    </tr>
+                    <tr>
+                        <td class="feature-name">Tránsito Peatonal</td>
+                        <td>No recomendado</td>
+                        <td class="feature-check">✓ Recomendado</td>
+                        <td class="feature-check">✓ Recomendado</td>
+                    </tr>
+                    <tr>
+                        <td class="feature-name">Estructuras Hidráulicas</td>
+                        <td>No</td>
+                        <td>No</td>
+                        <td class="feature-check">✓ Sí</td>
+                    </tr>
+                    <tr>
+                        <td class="feature-name">Grietas Activas</td>
+                        <td>No</td>
+                        <td class="feature-check">✓ Alta elongación</td>
+                        <td class="feature-check">✓ Doble protección</td>
+                    </tr>
+                    <tr>
+                        <td class="feature-name">Resistencia UV</td>
+                        <td class="feature-check">✓ Alta</td>
+                        <td class="feature-check">✓ Alta</td>
+                        <td class="feature-check">✓ Máxima</td>
+                    </tr>
+                    <tr>
+                        <td class="feature-name">Temp. Extremas</td>
+                        <td>-40°C a +570°C</td>
+                        <td>-40°C a +40°C</td>
+                        <td>-40°C a +570°C</td>
+                    </tr>
+                    <tr>
+                        <td class="feature-name">Aplicación Óptima</td>
+                        <td>Fachadas</td>
+                        <td>Pisos</td>
+                        <td>Premium Multi-uso</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>
+
+<!-- ===== BENEFITS SECTION ===== -->
+<section class="why-protect" id="benefits">
+    <div class="max-width">
+        <div class="section-header">
+            <h2>Beneficios Comprobados</h2>
+            <p>Resultados medibles y garantizados con respaldo de 25+ años de expertise.</p>
+        </div>
+        
+        <div class="protection-grid">
+            <div class="protection-card">
+                <h3>Prevención de Filtraciones</h3>
+                <p>Sistema de microcristalización sella poros completamente. <strong>99.9% de impermeabilidad</strong> comprobada en laboratorio según normas ASTM.</p>
+            </div>
+            
+            <div class="protection-card">
+                <h3>Resistencia Química</h3>
+                <p>Resiste HCl (89%), H₂SO₄ (71%), NaOH, KOH. Protección contra gasolinas, aceites, grasas y productos químicos industriales.</p>
+            </div>
+            
+            <div class="protection-card">
+                <h3>Durabilidad Extrema</h3>
+                <p>Estable a temperaturas desde -40°C hasta +570°C. No pierde propiedades. <strong>Garantía de 25 años</strong> en productos premium.</p>
+            </div>
+            
+            <div class="protection-card">
+                <h3>Facilidad de Aplicación</h3>
+                <p>Secado rápido (4-8 horas). Sin dilución requerida. Rendimiento predecible: 2-8 m²/L según porosidad del material.</p>
+            </div>
+            
+            <div class="protection-card">
+                <h3>Mantenimiento Mínimo</h3>
+                <p>Una aplicación dura años. Almacenamiento seguro 12 meses en condiciones recomendadas. Vida útil sin revisiones intermedias.</p>
+            </div>
+            
+            <div class="protection-card">
+                <h3>Respeto al Medio Ambiente</h3>
+                <p>Fórmulas ecológicas sin solventes. Agua destilada 100% libre de sales. Sistema de purificación de ósmosis inversa certificado.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== CONTACT FORM SECTION ===== -->
+<section class="contact-form-section" id="contact">
+    <div class="max-width">
+        <div class="section-header">
+            <h2>Contacta con Nuestro Equipo</h2>
+            <p>Solicita asesoramiento personalizado para tu proyecto. Respuesta en menos de 24 horas.</p>
+        </div>
+        
+        <div class="form-container">
+            <form id="contactForm" class="form-group">
+                <div class="form-field">
+                    <label for="nombre">Nombre Completo</label>
+                    <input type="text" id="nombre" name="nombre" required aria-label="Nombre Completo">
+                </div>
+                
+                <div class="form-field">
+                    <label for="telefono">Teléfono/WhatsApp</label>
+                    <input type="tel" id="telefono" name="telefono" required aria-label="Teléfono o WhatsApp">
+                </div>
+                
+                <div class="form-field">
+                    <label for="proyecto">Tipo de Proyecto</label>
+                    <select id="proyecto" name="proyecto" required aria-label="Tipo de Proyecto">
+                        <option value="">Selecciona una opción...</option>
+                        <option value="Mármol y Piedra Natural">Mármol y Piedra Natural</option>
+                        <option value="Pisos de Concreto">Pisos de Concreto</option>
+                        <option value="Fachadas">Fachadas</option>
+                        <option value="Estructuras Hidráulicas">Estructuras Hidráulicas</option>
+                        <option value="Otro">Otro</option>
+                    </select>
+                </div>
+                
+                <div class="form-field">
+                    <label for="descripcion">Descripción del Proyecto</label>
+                    <textarea id="descripcion" name="descripcion" required aria-label="Descripción del Proyecto"></textarea>
+                </div>
+                
+                <button type="submit" class="btn btn-primary form-submit">Enviar Solicitud a WhatsApp</button>
+            </form>
+        </div>
+    </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+    <div class="footer-content">
+        <div class="footer-section">
+            <h4>StoneGuard</h4>
+            <p>Protección premium de superficies minerales con tecnología Wall-Fine. Impermeabilización nanotecnológica de clase mundial.</p>
+            <p style="margin-top: 1rem; font-size: 0.85rem; color: var(--accent-gold);">
+                ✓ 25+ años de experiencia<br>
+                ✓ 500+ proyectos completados<br>
+                ✓ 10K+ clientes satisfechos
+            </p>
+        </div>
+        
+        <div class="footer-section">
+            <h4>Productos</h4>
+            <p><a href="#products">SealStone Pro</a></p>
+            <p><a href="#products">GuardShield Ultra</a></p>
+            <p><a href="#products">Prestige Luxe</a></p>
+            <p><a href="#tech-specs">Especificaciones Técnicas</a></p>
+        </div>
+        
+        <div class="footer-section">
+            <h4>Contacto</h4>
+            <p><strong>WhatsApp:</strong> <a href="https://wa.me/5255544948057" target="_blank">+52 55 4494 8057</a></p>
+            <p><strong>Email:</strong> <a href="mailto:stoneguard.andres@gmail.com">stoneguard.andres@gmail.com</a></p>
+            <p><strong>Ubicación:</strong> Ciudad de México</p>
+            <p><strong>Horario:</strong> Lunes-Viernes 8am-6pm<br>Sábados 9am-2pm</p>
+        </div>
+        
+        <div class="footer-section">
+            <h4>Certificaciones</h4>
+            <p>✓ Tecnología Wall-Fine certificada</p>
+            <p>✓ Producto de exportación</p>
+            <p>✓ 100% garantía de calidad</p>
+            <p>✓ Pruebas de laboratorio ASTM</p>
+        </div>
+    </div>
+    
+    <div class="footer-bottom">
+        <p>&copy; 2024 StoneGuard. Todos los derechos reservados.</p>
+        <p>Impermeabilización de superficies minerales | Ciudad de México</p>
+    </div>
+</footer>
+
+<!-- ===== FLOATING WHATSAPP BUTTON ===== -->
+<button class="floating-whatsapp" id="floatingWhatsApp" aria-label="Abrir WhatsApp">
+    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.272-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.67-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.076 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421-7.403h-.004a9.87 9.87 0 00-5.031 1.378 9.9 9.9 0 00-3.025 2.847 9.864 9.864 0 00.75 12.48 9.898 9.898 0 005.289 2.73 9.865 9.865 0 006.114-1.85 9.887 9.887 0 003.139-3.835 9.86 9.86 0 00-.46-10.15 9.878 9.878 0 00-3.776-3.36z"/>
+    </svg>
+    <div class="whatsapp-badge">1</div>
+    <div class="whatsapp-tooltip">¡Hola! ¿En qué podemos ayudarte?</div>
+</button>
+
+<!-- ===== SCRIPTS ===== -->
+<script>
+    // ===== INTERSECTION OBSERVER FOR SCROLL ANIMATIONS =====
+    const observerOptions = {
+        threshold: 0.15,
+        rootMargin: '0px 0px -100px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('in-view');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, observerOptions);
+
+    // Observe all animated elements
+    document.querySelectorAll('.protection-card, .product-card, .spec-box').forEach(el => {
+        observer.observe(el);
+    });
+
+    // ===== WHATSAPP FUNCTIONS =====
+    const phoneNumber = '5255544948057';
+    
+    const mensajesPredefinidos = {
+        'general': 'Hola StoneGuard, quisiera conocer más sobre sus servicios de impermeabilización.',
+        'presupuesto': 'Hola, me gustaría solicitar un presupuesto para impermeabilización de mis superficies.',
+        'SealStone Pro': 'Estoy interesado en SealStone Pro ($450 MXN+). ¿Pueden proporcionarme más información y un presupuesto?',
+        'GuardShield Ultra': 'Me interesa GuardShield Ultra ($750 MXN+). Quisiera saber más detalles y recibir una cotización.',
+        'Prestige Luxe': 'Quiero conocer más sobre Prestige Luxe ($1,200 MXN+). ¿Pueden asesorarme para mi proyecto?'
+    };
+
+    function openWhatsAppChat(producto) {
+        const mensaje = mensajesPredefinidos[producto] || mensajesPredefinidos['general'];
+        const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(mensaje)}`;
+        window.open(url, '_blank');
+    }
+
+    // Direct WhatsApp button click
+    document.getElementById('floatingWhatsApp').addEventListener('click', () => {
+        openWhatsAppChat('general');
+    });
+
+    // ===== CONTACT FORM SUBMISSION =====
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        const nombre = document.getElementById('nombre').value.trim();
+        const telefono = document.getElementById('telefono').value.trim();
+        const proyecto = document.getElementById('proyecto').value;
+        const descripcion = document.getElementById('descripcion').value.trim();
+
+        if (!nombre || !telefono || !proyecto || !descripcion) {
+            alert('Por favor completa todos los campos');
+            return;
+        }
+
+        const mensaje = `*📋 Solicitud de Contacto StoneGuard*
+
+*Nombre:* ${nombre}
+*Teléfono:* ${telefono}
+*Tipo de Proyecto:* ${proyecto}
+*Descripción:* ${descripcion}
+
+¿Podrías proporcionarme más información sobre los productos y un presupuesto personalizado?`;
+
+        const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(mensaje)}`;
+        window.open(url, '_blank');
+        
+        // Reset form
+        this.reset();
+        alert('Redirigiendo a WhatsApp...');
+    });
+
+    // ===== SMOOTH SCROLLING =====
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        });
+    });
+
+    // ===== PARALLAX EFFECT ON HERO =====
+    window.addEventListener('scroll', () => {
+        const hero = document.querySelector('.hero');
+        if (hero) {
+            const scrollPosition = window.scrollY;
+            hero.style.backgroundPosition = `0 ${scrollPosition * 0.15}px`;
+        }
+    });
+
+    // ===== MOBILE MENU SCROLL DETECTION =====
+    let lastScrollPosition = 0;
+    window.addEventListener('scroll', () => {
+        const currentScrollPosition = window.scrollY;
+        // You can add header hide/show logic here if needed
+        lastScrollPosition = currentScrollPosition;
+    });
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-XXXXXXXXXX', {
+        'page_path': window.location.pathname
+    });
+</script>
+
+</body>
+</html>
